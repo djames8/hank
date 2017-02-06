@@ -298,7 +298,7 @@ var InputHelper = function () {
                                 browser.switchTo().alert().then(null, function (e) {
                                     if (e.code == 27) {
                                         browser.getCurrentUrl().then(function (Url) {
-                                            browser.sleep(screenShotWaitTimeOut).then(function(){
+                                            browser.sleep(screenShotWaitTimeOut).then(function () {
                                                 if (Url != UrlBeforeClick) {
                                                     browser.takeScreenshot().then(function (png) {
                                                         browser.getCapabilities().then(function (capabilities) {
@@ -538,20 +538,13 @@ var InputHelper = function () {
                     case actionConstant.SwitchWebsiteType:
                     {
                         if (testInstance.Value.toLowerCase() == 'angular') {
-                            browser.getCurrentUrl().then(function (actualUrl) {
-                                browser.get(actualUrl).then(function () {
-                                    browser.ignoreSynchronization = false;
-                                    browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
-                                });
-                            });
+                            console.log("Set  angular");
+                            browser.ignoreSynchronization = false;
                         }
                         else {
-                            browser.getCurrentUrl().then(function (actualUrl) {
-                                browser.get(actualUrl).then(function () {
-                                    browser.ignoreSynchronization = true;
-                                    browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
-                                });
-                            });
+                            console.log("Set non angular");
+                            browser.ignoreSynchronization = true;
+
                         }
                         break;
                     }
@@ -686,7 +679,7 @@ var InputHelper = function () {
                                     'Status': false
                                 });
                             }, function () {
-                                console.log("inside reject callback function ");
+                                // console.log("inside reject callback function ");
                                 expect("Call to url= " + browser.params.config.baseApiUrl + 'api/website/0/report-link-data/' + testInstance.Id + '/' + testInstance.SharedTestDataId + "Gives no data").toEqual(" ")
                             });
                         });
@@ -1349,7 +1342,7 @@ var InputHelper = function () {
             }
         }
         else {
-            console.log("********** Support not been added for wait for locator '" + testInstance.Locator + "' **********");
+            // console.log("********** Support not been added for wait for locator '" + testInstance.Locator + "' **********");
             browser.sleep(timeOut);
         }
     };
