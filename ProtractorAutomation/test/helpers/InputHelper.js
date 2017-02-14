@@ -446,7 +446,6 @@ var InputHelper = function () {
 
                         }
                         else {
-
                             browser.controlFlow().execute(function () {
                                 var response = hashTagHelper.computeHashTags(testInstance.Value).then(function (response) {
                                     thisobj.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, response.toString(), testInstance.DisplayName);
@@ -1146,49 +1145,19 @@ var InputHelper = function () {
 
     this.setDropDown = function selectOption(executionSequence, key, value, selectFirst, milliseconds) {
         this.anyTextToBePresentInElement(key, value);
-
         if (selectFirst || (value == undefined || value == '')) {
             value = "\uE015"; // DOWN arrow
-            //element(key).sendKeys(value);
             key.sendKeys(value).then(function () {
                 browser.params.config.LastStepExecuted = executionSequence;
             });
         }
         else {
             value = value.replace('  ', ' ').toLowerCase().trim();
-
-            var desiredOption;
-            var hasMatchedValue = false;
-            var count = 0;
-            key.all(by.tagName('option')).getText().then
-            (
-                function findMatchingOption(options) {
-                    options.some
-                    (
-                        function (option) {
-
-                            if (option.replace('  ', ' ').toLowerCase().trim() == value) {
-                                desiredOption = count;
-                                hasMatchedValue = true;
-                                return true;
-                            }
-                            else {
-                                count++;
-                            }
-                        }
-                    );
-                }
-            ).then(function clickOption() {
-                    if (hasMatchedValue) {
-                        key.all(by.tagName('option')).get(count).click().then(function () {
-                            browser.params.config.LastStepExecuted = executionSequence;
-                        });
-                    }
-                    else {
-
-                    }
-                });
-
+            var xpth = "option[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='" +  value + "']";
+            console.log("xpth= " + xpth);
+            key.element(by.xpath(xpth)).click().then(function(){
+                browser.params.config.LastStepExecuted = executionSequence;
+            });
         }
     };
 

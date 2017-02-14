@@ -250,13 +250,13 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
               $scope.InputControlDisplayStatus.chkAssignVariableValue = true;
             }
 
-            else if($scope.TestData.ActionId == $scope.ActionConstants.OpenBrowserActionId || $scope.TestData.ActionId == $scope.ActionConstants.CloseBrowserActionId) {
+            else if ($scope.TestData.ActionId == $scope.ActionConstants.OpenBrowserActionId || $scope.TestData.ActionId == $scope.ActionConstants.CloseBrowserActionId) {
 
               crudService.getAll(ngAppSettings.BrowserUrl).then(function (response) {
                 $scope.BrowserList = response;
                 $scope.InputControlDisplayStatus.ddlBrowserName = true;
                 $scope.InputControlDisplayStatus.txtValue = true;
-                if($scope.TestData.ActionId == $scope.ActionConstants.CloseBrowserActionId) {
+                if ($scope.TestData.ActionId == $scope.ActionConstants.CloseBrowserActionId) {
                   $scope.InputControlDisplayStatus.txtValue = false;
                 }
               });
@@ -482,6 +482,7 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
           if ($scope.TestDataList[i].LinkTestType == ngAppSettings.StepTypes.SharedTestStep) {
             $scope.TestDataList[i].rowStyle = 'background-color: #dcdcdc;';
             for (var j = 0; j < $scope.TestDataList[i].SharedTest.SharedTestDataList.length; j++) {
+              $scope.TestDataList[i].SharedTest.SharedTestDataList[j].UIModifiedByUserName = $scope.TestDataList[i].SharedTest.SharedTestDataList[j].ModifiedByUserName
               var lnkSharedStep = _.where($scope.TestDataList[i].SharedTestSteps, {'SharedTestDataId': $scope.TestDataList[i].SharedTest.SharedTestDataList[j].Id})[0];
               $scope.TestDataList[i].SharedTest.SharedTestDataList[j].Ignore = $scope.TestDataList[i].SharedTest.SharedTestDataList[j].IsIgnored;
               $scope.TestDataList[i].SharedTest.SharedTestDataList[j].UIExecutionSequence = 0;

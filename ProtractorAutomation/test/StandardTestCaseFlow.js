@@ -15,6 +15,8 @@ var StandardTestCaseFlow =
 
         var InputHelper = require('./helpers/InputHelper.js');
         var inputHelper = new InputHelper();
+        var ControlFlowHelper = require('./helpers/ControlFlowHelper.js');
+        var controlFlowHelper = new ControlFlowHelper();
         var JsonHelper = require('./helpers/JsonHelper.js');
         var jsonHelper = new JsonHelper();
 
@@ -41,7 +43,7 @@ var StandardTestCaseFlow =
                         });
                         var testDataUrl = jsonHelper.format(params.config.baseApiUrl + params.config.baseTestDataUrl, params.config.TestQueueId);
 
-                        if(params.config.isMobile == 'false') {
+                        if (params.config.isMobile == 'false') {
                             browser.driver.manage().window().maximize();
                         }
 
@@ -62,7 +64,7 @@ var StandardTestCaseFlow =
                         });
                     });
 
-                    afterAll(function(done){
+                    afterAll(function (done) {
                         process.nextTick(done);
                     });
 
@@ -88,9 +90,20 @@ var StandardTestCaseFlow =
                                     expect("ErroMessage:").toEqual("Test execution has been cancelled by the user!")
                                 } else {
                                     browser.get(params.config.urlToTest);
-
+                                    var key;
                                     for (var i = 0; i < testDataList.length; i++) {
-                                        var key = inputHelper.setLocator(testDataList[i], testCase.TestName, TakeScreenShot, TakeScreenShotBrowser, i);
+                                        if (!!testDataList[i].LocatorIdentifier) {
+                                            var variableInLocatorIdentifierList = testDataList[i].LocatorIdentifier.match(/\{([^}]+)\}/g) || [];
+                                            if (variableInLocatorIdentifierList.length > 0) {
+                                                controlFlowHelper.setControl(testDataList[i], testCase.TestName, TakeScreenShot, TakeScreenShotBrowser, i,variableInLocatorIdentifierList);
+                                            }
+                                            else {
+                                                key = inputHelper.setLocator(testDataList[i], testCase.TestName, TakeScreenShot, TakeScreenShotBrowser, i);
+                                            }
+                                        }
+                                        else {
+                                            key = inputHelper.setLocator(testDataList[i], testCase.TestName, TakeScreenShot, TakeScreenShotBrowser, i);
+                                        }
                                     }
                                 }
                             }
