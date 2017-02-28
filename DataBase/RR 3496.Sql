@@ -100,3 +100,126 @@ $BODY$
   ROWS 5000;
 ALTER FUNCTION procsearchreportv3(timestamp without time zone, timestamp without time zone, bigint, bigint, bigint, text, text, integer, bigint, bigint, integer, boolean, text)
   OWNER TO postgres;
+
+
+
+  --RR #3692
+
+CREATE OR REPLACE FUNCTION procgetreportlinkdata(
+    IN daytillpastdate timestamp without time zone,
+    IN testid bigint)
+  RETURNS TABLE("Value" json, "ReportDataId" bigint, "TestId" bigint) AS
+$BODY$
+
+
+BEGIN
+
+Return Query
+
+SELECT
+cast("RD"."Value"::json->>'VariableStateContainer' as json),
+cast ("RD"."Id" as bigint),
+cast ("TQ"."TestId" as bigint)
+FROM "TblReportData" as "RD"
+Inner Join "TblTestQueue" as "TQ" on "RD"."TestQueueId"="TQ"."Id"
+Left Join "TblReportExecutionLinkData" as "REL" on "REL"."TestId"="TQ"."TestId" AND "REL"."ReportDataId"="RD"."Id"
+
+Where
+
+"TQ"."TestId"=testid AND
+"RD"."Status"=8 AND
+"REL"."Id" IS NULL AND
+"RD"."CreatedOn"::date >= daytillpastdate::date
+order By  "RD"."Id" desc limit 1 ;
+
+
+
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100
+  ROWS 1000;
+ALTER FUNCTION procgetreportlinkdata(timestamp without time zone, bigint)
+  OWNER TO postgres;
+
+-- RR #3674
+
+-- Table: "TblTransformationCategory"
+
+-- DROP TABLE "TblTransformationCategory";
+
+CREATE TABLE "TblTransformationCategory"
+(
+  "Id" bigserial NOT NULL,
+  "IsDeleted" boolean,
+  "CreatedOn" timestamp without time zone,
+  "CreatedBy" bigint,
+  "ModifiedBy" bigint,
+  "ModifiedOn" timestamp without time zone,
+  "Name" character varying,
+  "WebsiteId" bigint,
+  CONSTRAINT "TblTransformationCategory_pkey" PRIMARY KEY ("Id"),
+  CONSTRAINT "TransformationCategory_Website_Fkey" FOREIGN KEY ("WebsiteId")
+      REFERENCES "TblWebsite" ("Id") MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "TblTransformationCategory"
+  OWNER TO postgres;
+
+  -- RR #3674
+
+-- Index: "fki_TransformationCategory_Website_Fkey"
+
+-- DROP INDEX "fki_TransformationCategory_Website_Fkey";
+
+CREATE INDEX "fki_TransformationCategory_Website_Fkey"
+  ON "TblTransformationCategory"
+  USING btree
+  ("WebsiteId");
+
+
+
+
+  -- Table: "TblTransformation"
+
+  -- DROP TABLE "TblTransformation";
+
+  CREATE TABLE "TblTransformation"
+  (
+    "Id" bigint NOT NULL DEFAULT nextval('"TblTransformationDefination_Id_seq"'::regclass),
+    "IsDeleted" boolean,
+    "CreatedOn" timestamp without time zone,
+    "CreatedBy" bigint,
+    "ModifiedBy" bigint,
+    "ModifiedOn" timestamp without time zone,
+    "TransformationCategoryId" bigint,
+    "Value" character varying,
+    "TransformedValue" character varying,
+    CONSTRAINT "TblTransformationDefination_pkey" PRIMARY KEY ("Id"),
+    CONSTRAINT "TblTransformationDefination_TblTransformationCategory" FOREIGN KEY ("TransformationCategoryId")
+        REFERENCES "TblTransformationCategory" ("Id") MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+  )
+  WITH (
+    OIDS=FALSE
+  );
+  ALTER TABLE "TblTransformation"
+    OWNER TO postgres;
+
+  -- Index: "fki_TblTransformationDefination_TblTransformationCategory"
+
+  -- DROP INDEX "fki_TblTransformationDefination_TblTransformationCategory";
+
+  CREATE INDEX "fki_TblTransformationDefination_TblTransformationCategory"
+    ON "TblTransformation"
+    USING btree
+    ("TransformationCategoryId");
+
+
+
+
+
+
