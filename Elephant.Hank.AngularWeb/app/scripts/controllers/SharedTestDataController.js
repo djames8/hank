@@ -168,7 +168,7 @@ app.controller('SharedTestDataController', ['$scope', '$q', '$stateParams', '$st
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
               $scope.InputControlDisplayStatus.txtValue = true;
             }
-            else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchWindowActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.IgnoreLoadNeUrlActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.TerminateTestActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchToDefaultContentActionId) {
+            else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.CloseCurrentTabActionId ||$scope.SharedTestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchWindowActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.IgnoreLoadNeUrlActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.TerminateTestActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchToDefaultContentActionId) {
             }
             else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.SetVariableManuallyActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.DeclareVariableActionId) {
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
@@ -212,6 +212,17 @@ app.controller('SharedTestDataController', ['$scope', '$q', '$stateParams', '$st
                   }
                 }
               );
+            }
+            else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.TransformationOnActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.TransformationOffActionId) {
+              crudService.getAll(ngAppSettings.TransformationCategoryUrl.format($stateParams.WebsiteId)).then(function (response) {
+                $scope.TransformationCategoryList = [];
+                for (var catCount = 0; catCount < response.length; catCount++) {
+                  $scope.TransformationCategoryList[catCount] = {};
+                  $scope.TransformationCategoryList[catCount].Id = response[catCount].Id + '';
+                  $scope.TransformationCategoryList[catCount].Name = response[catCount].Name;
+                }
+                $scope.InputControlDisplayStatus.txtValue = false;
+              });
             }
             else {
               $scope.InputControlDisplayStatus.chkAssignVariableValue = true;
@@ -493,7 +504,7 @@ app.controller('SharedTestDataController', ['$scope', '$q', '$stateParams', '$st
         else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.WaitActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchWebsiteTypeActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.AssertUrlToContainActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.HandleBrowserAlertPopupActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.LoadNewUrlActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.LoadPartialUrlActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchFrameActionId) {
           $scope.InputControlDisplayStatus.txtValue = true;
         }
-        else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchWindowActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.IgnoreLoadNeUrlActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.TerminateTestActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.AssertUrlToContainActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchToDefaultContentActionId) {
+        else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.CloseCurrentTabActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchWindowActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.IgnoreLoadNeUrlActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.TerminateTestActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.AssertUrlToContainActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.SwitchToDefaultContentActionId) {
           $scope.InputControlDisplayStatus.txtValue = false;
         }
         else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.SetVariableActionId) {
@@ -563,6 +574,12 @@ app.controller('SharedTestDataController', ['$scope', '$q', '$stateParams', '$st
               }
             }
           );
+        }
+        else if ($scope.SharedTestData.ActionId == $scope.ActionConstants.TransformationOnActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.TransformationOffActionId) {
+          crudService.getAll(ngAppSettings.TransformationCategoryUrl.format($stateParams.WebsiteId)).then(function (response) {
+            $scope.TransformationCategoryList = response;
+            $scope.InputControlDisplayStatus.txtValue = false;
+          });
         }
         else {
           if ($scope.PagesList.length == 0) {

@@ -89,6 +89,8 @@
     <Compile Include="TestDataServices\IHashTagDescriptionService.cs" />
     <Compile Include="TestDataServices\IModuleService.cs" />
     <Compile Include="TestDataServices\IRequestTypesService.cs" />
+    <Compile Include="TestDataServices\ITransformationCategoryService.cs" />
+    <Compile Include="TestDataServices\ITransformationService.cs" />
     <Compile Include="TestDataServices\IUserProfileService.cs" />
     <Compile Include="TestDataServices\IReportDataService.cs" />
     <Compile Include="TestDataServices\IActionsService.cs" />

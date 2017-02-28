@@ -452,6 +452,142 @@
             <param name="ticketMasterDto">The TicketMasterDto </param>
             <param name="item">The object saved in DB firts time</param>
         </member>
+        <member name="T:Elephant.Hank.Api.Controllers.TransformationCategoryController">
+            <summary>
+            The TransformationCategoryController class
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Controllers.TransformationCategoryController.transformationCategoryService">
+            <summary>
+            The actions service
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationCategoryController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.ITransformationCategoryService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.TransformationCategoryController"/> class.
+            </summary>
+            <param name="loggerService">The logger service.</param>
+            <param name="transformationCategoryService">The transformationCategory service.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationCategoryController.GetAll(System.Int64)">
+            <summary>
+            Gets all.
+            </summary>
+            <param name="websiteId">The website identifier.</param>
+            <returns>
+            List of TblTransformationCategoryDto objects
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationCategoryController.GetById(System.Int64)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="transformationCategoryId">The identifier.</param>
+            <returns>TblTransformationCategoryDto objects</returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationCategoryController.DeleteById(System.Int64)">
+            <summary>
+            Deletes the by identifier.
+            </summary>
+            <param name="transformationCategoryId">The identifier.</param>
+            <returns>Deleted object</returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationCategoryController.Add(Elephant.Hank.Resources.Dto.TblTransformationCategoryDto)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="transformationCategoryDto">The transformationCategory dto.</param>
+            <returns>
+            Newly added object
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationCategoryController.Update(Elephant.Hank.Resources.Dto.TblTransformationCategoryDto,System.Int64)">
+            <summary>
+            Updates the specified action dto.
+            </summary>
+            <param name="transformationCategoryDto">The transformationCategory dto.</param>
+            <param name="transformationCategoryId">The identifier.</param>
+            <returns>
+            Newly updated object
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationCategoryController.AddUpdate(Elephant.Hank.Resources.Dto.TblTransformationCategoryDto)">
+            <summary>
+            Adds the update.
+            </summary>
+            <param name="transformationCategoryDto">The transformationCategory dto.</param>
+            <returns>
+            Newly added object
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Controllers.TransformationController">
+            <summary>
+            The TransformationController class
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Controllers.TransformationController.transformationService">
+            <summary>
+            The actions service
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.ITransformationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.TransformationController"/> class.
+            </summary>
+            <param name="loggerService">The logger service.</param>
+            <param name="transformationService">The transformation service.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationController.GetAll(System.Int64)">
+            <summary>
+            Gets all.
+            </summary>
+            <param name="transformationCategoryId">The transformation category identifier.</param>
+            <returns>
+            List of TblTransformationDto objects
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationController.GetById(System.Int64)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="transformationId">The identifier.</param>
+            <returns>TblTransformationDto objects</returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationController.DeleteById(System.Int64)">
+            <summary>
+            Deletes the by identifier.
+            </summary>
+            <param name="transformationId">The identifier.</param>
+            <returns>Deleted object</returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationController.Add(Elephant.Hank.Resources.Dto.TblTransformationDto)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="transformationDto">The transformation dto.</param>
+            <returns>
+            Newly added object
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationController.Update(Elephant.Hank.Resources.Dto.TblTransformationDto,System.Int64)">
+            <summary>
+            Updates the specified action dto.
+            </summary>
+            <param name="transformationDto">The transformation dto.</param>
+            <param name="transformationId">The identifier.</param>
+            <returns>
+            Newly updated object
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.TransformationController.AddUpdate(Elephant.Hank.Resources.Dto.TblTransformationDto)">
+            <summary>
+            Adds the update.
+            </summary>
+            <param name="transformationDto">The transformation dto.</param>
+            <returns>
+            Newly added object
+            </returns>
+        </member>
         <member name="T:Elephant.Hank.Api.Security.CustomAuthorizeAttribute">
             <summary>
             The CustomAuthorizeAttribute class

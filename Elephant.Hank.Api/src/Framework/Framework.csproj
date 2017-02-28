@@ -151,6 +151,8 @@
     <Compile Include="TestDataServices\TestQueueExecutableService.cs" />
     <Compile Include="TestDataServices\TestQueueService.cs" />
     <Compile Include="TestDataServices\TestService.cs" />
+    <Compile Include="TestDataServices\TransformationCategoryService.cs" />
+    <Compile Include="TestDataServices\TransformationService.cs" />
     <Compile Include="TestDataServices\UserProfileService.cs" />
     <Compile Include="TestDataServices\WebsiteService.cs" />
   </ItemGroup>

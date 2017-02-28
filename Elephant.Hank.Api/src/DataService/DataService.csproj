@@ -129,6 +129,8 @@
     <Compile Include="DBSchema\TblTestCategories.cs" />
     <Compile Include="DBSchema\TblTestData.cs" />
     <Compile Include="DBSchema\TblTestQueue.cs" />
+    <Compile Include="DBSchema\TblTransformation.cs" />
+    <Compile Include="DBSchema\TblTransformationCategory.cs" />
     <Compile Include="DBSchema\TblUserProfile.cs" />
     <Compile Include="DBSchema\TblWebsite.cs" />
     <Compile Include="DynamicContractResolver.cs" />

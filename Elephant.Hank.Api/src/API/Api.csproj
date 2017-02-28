@@ -222,6 +222,8 @@
     <Folder Include="Views\SharedTestData\" />
     <Folder Include="Views\SharedTest\" />
     <Folder Include="Views\TestQueue\" />
+    <Folder Include="Views\TransformationCategory\" />
+    <Folder Include="Views\Transformation\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +234,8 @@
     <Compile Include="Controllers\ReportLinkDataController.cs" />
     <Compile Include="Controllers\RequestTypesController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
+    <Compile Include="Controllers\TransformationCategoryController.cs" />
+    <Compile Include="Controllers\TransformationController.cs" />
     <Compile Include="Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

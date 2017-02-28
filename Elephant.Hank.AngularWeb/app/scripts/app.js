@@ -597,6 +597,55 @@ var app = angular
         permissionData: {Roles: ["TestAdmin", "TestUser"]}
       })
 
+      .state('Website.TransformationCategory', {
+        url: "/{WebsiteId:int}/TransformationCategory",
+        templateUrl: "views/TransformationCategory/transformationCategory.html",
+        controller: 'TransformationCategoryController',
+        ncyBreadcrumb: {label: 'Transformation Category', parent: "Website.Update"},
+        permissionData: {Roles: ["TestAdmin", "TestUser"]}
+      })
+
+      .state('Website.TransformationCategoryAdd', {
+        url: "/{WebsiteId:int}/TransformationCategory/Add",
+        templateUrl: "views/TransformationCategory/transformation-category-add-update.html",
+        controller: 'TransformationCategoryController',
+        ncyBreadcrumb: {label: 'Transformation Category', parent: "Website.Update"},
+        permissionData: {Roles: ["TestAdmin", "TestUser"]}
+      })
+
+      .state('Website.TransformationCategoryUpdate', {
+        url: "/{WebsiteId:int}/TransformationCategory/{TransformationCategoryId:int}",
+        templateUrl: "views/TransformationCategory/transformation-category-add-update.html",
+        controller: 'TransformationCategoryController',
+        ncyBreadcrumb: {label: '{{TransformationCategory.Name}}', parent: "Website.TransformationCategory"},
+        permissionData: {Roles: ["TestAdmin", "TestUser"]}
+      })
+
+      .state('Website.Transformation', {
+        url: "/{WebsiteId:int}/TransformationCategory/{TransformationCategoryId:int}/Transformation",
+        templateUrl: "views/Transformation/transformation.html",
+        controller: 'TransformationController',
+        ncyBreadcrumb: {label: 'Transformation', parent: "Website.TransformationCategoryUpdate"},
+        permissionData: {Roles: ["TestAdmin", "TestUser"]}
+      })
+
+     .state('Website.TransformationAdd', {
+        url: "/{WebsiteId:int}/TransformationCategory/{TransformationCategoryId:int}/Transformation/Add",
+        templateUrl: "views/Transformation/transformation-add-update.html",
+        controller: 'TransformationController',
+        ncyBreadcrumb: {label: 'Transformation', parent: "Website.TransformationCategoryUpdate"},
+        permissionData: {Roles: ["TestAdmin", "TestUser"]}
+      })
+
+
+      .state('Website.TransformationUpdate', {
+        url: "/{WebsiteId:int}/TransformationCategory/{TransformationCategoryId:int}/Transformation/{TransformationId:int}",
+        templateUrl: "views/Transformation/transformation-add-update.html",
+        controller: 'TransformationController',
+        ncyBreadcrumb: {label: '{{Transformation.Value}}', parent: "Website.TransformationCategory.Transformation"},
+        permissionData: {Roles: ["TestAdmin", "TestUser"]}
+      })
+
       .state('Website.SharedTest', {
         url: "/{WebsiteId:int}/SharedTest",
         templateUrl: "views/SharedTest/test.html",
@@ -868,5 +917,7 @@ var app = angular
     GroupModuleUrl: "group/{0}/group-module-access",
     GroupWebsiteModuleUrl: "group/{0}/website/{1}",
     GroupModuleAccessBulkUpdate: "group-module-access/update-access-bulk",
-    HashTagDescriptionUrl: "hash-tag-description"
+    HashTagDescriptionUrl: "hash-tag-description",
+    TransformationCategoryUrl: "website/{0}/transformation-category",
+    TransformationUrl: "website/{0}/transformation-category/{1}/transformation"
   });

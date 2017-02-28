@@ -75,6 +75,19 @@
                 </div>
               </div>
 
+              <div class="form-group"
+                   ng-if="TestData.ActionId==ActionConstants.TransformationOnActionId || TestData.ActionId==ActionConstants.TransformationOffActionId">
+                <label class="col-sm-2 control-label">Transformation Category</label>
+
+                <div class="col-sm-4">
+                 <select class="form-control" ng-model="TestData.Value"
+                          ng-options="transformationCategory.Id as transformationCategory.Name for transformationCategory in TransformationCategoryList | orderBy:'Name'"
+                           name="SharedStepWebsiteId" required="Please select transformation category">
+                    <option style="display:none" value="">--Select--</option>
+                  </select>
+                </div>
+              </div>
+
               <!-- #start Load Report Data  -->
 
               <div class="form-group"

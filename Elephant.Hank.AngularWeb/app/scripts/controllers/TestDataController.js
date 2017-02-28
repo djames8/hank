@@ -15,6 +15,8 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
       SharedTestDataList: [],
       ApiTestData: {}
     };
+    $scope.TransformationCategoryList = [];
+
     $scope.LastSeqNumber = 1;
     $scope.InputControlDisplayStatus = {
       'ddlAction': false,
@@ -169,6 +171,7 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
     $scope.onLoadEdit = function () {
       $scope.resetAllInputControlDisplayStatus();
       $scope.resetModel();
+
       $scope.loadDataForEdit().then(function () {
         switch ($scope.TestData.LinkTestType) {
           case 0:
@@ -206,7 +209,8 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
               $scope.InputControlDisplayStatus.txtValue = true;
             }
-            else if ($scope.TestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId ||
+            else if ($scope.TestData.ActionId == $scope.ActionConstants.CloseCurrentTabActionId ||
+              $scope.TestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId ||
               $scope.TestData.ActionId == $scope.ActionConstants.SwitchWindowActionId ||
               $scope.TestData.ActionId == $scope.ActionConstants.IgnoreLoadNeUrlActionId ||
               $scope.TestData.ActionId == $scope.ActionConstants.TerminateTestActionId ||
@@ -259,6 +263,18 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
                 if ($scope.TestData.ActionId == $scope.ActionConstants.CloseBrowserActionId) {
                   $scope.InputControlDisplayStatus.txtValue = false;
                 }
+              });
+            }
+            else if ($scope.TestData.ActionId == $scope.ActionConstants.TransformationOnActionId || $scope.TestData.ActionId == $scope.ActionConstants.TransformationOffActionId) {
+              crudService.getAll(ngAppSettings.TransformationCategoryUrl.format($stateParams.WebsiteId)).then(function (response) {
+                debugger;
+                $scope.TransformationCategoryList = [];
+                for (var catCount = 0; catCount < response.length; catCount++) {
+                  $scope.TransformationCategoryList[catCount] = {};
+                  $scope.TransformationCategoryList[catCount].Id = response[catCount].Id + '';
+                  $scope.TransformationCategoryList[catCount].Name = response[catCount].Name;
+                }
+                $scope.InputControlDisplayStatus.txtValue = false;
               });
             }
             else {
@@ -331,6 +347,7 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
       }, function (response) {
         commonUi.showErrorPopup(response);
       }));
+
 
       promises.push(crudService.getById(ngAppSettings.TestDataAllByTestIdUrl.format($stateParams.WebsiteId, $stateParams.TestCatId, $stateParams.TestId), $stateParams.TestDataId).then(function (response) {
         $scope.TestData = response.Item;
@@ -479,6 +496,10 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
     $scope.onLoadList = function () {
       $scope.loadDataForList().then(function () {
         for (var i = 0; i < $scope.TestDataList.length; i++) {
+
+          if ($scope.TestDataList[i].ActionId == $scope.ActionConstants.LoadReportDataActionId || $scope.TestDataList[i].ActionId == $scope.ActionConstants.MarkLoadDataFromReportActionId) {
+            $scope.TestDataList[i].ActionValue = $scope.TestDataList[i].ActionValue + ' (' + $scope.TestDataList[i].SharedStepWebsiteTestName + ')';
+          }
           if ($scope.TestDataList[i].LinkTestType == ngAppSettings.StepTypes.SharedTestStep) {
             $scope.TestDataList[i].rowStyle = 'background-color: #dcdcdc;';
             for (var j = 0; j < $scope.TestDataList[i].SharedTest.SharedTestDataList.length; j++) {
@@ -654,7 +675,7 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
           $scope.TestData.ActionId == $scope.ActionConstants.SwitchFrameActionId) {
           $scope.InputControlDisplayStatus.txtValue = true;
         }
-        else if ($scope.TestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId || $scope.TestData.ActionId == $scope.ActionConstants.SwitchWindowActionId || $scope.TestData.ActionId == $scope.ActionConstants.IgnoreLoadNeUrlActionId || $scope.TestData.ActionId == $scope.ActionConstants.TerminateTestActionId || $scope.TestData.ActionId == $scope.ActionConstants.SwitchToDefaultContentActionId) {
+        else if ($scope.TestData.ActionId == $scope.ActionConstants.CloseCurrentTabActionId || $scope.TestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId || $scope.TestData.ActionId == $scope.ActionConstants.SwitchWindowActionId || $scope.TestData.ActionId == $scope.ActionConstants.IgnoreLoadNeUrlActionId || $scope.TestData.ActionId == $scope.ActionConstants.TerminateTestActionId || $scope.TestData.ActionId == $scope.ActionConstants.SwitchToDefaultContentActionId) {
           $scope.InputControlDisplayStatus.txtValue = false;
         }
         else if ($scope.TestData.ActionId == $scope.ActionConstants.SetVariableActionId) {
@@ -745,7 +766,12 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
             }
           );
         }
-
+        else if ($scope.TestData.ActionId == $scope.ActionConstants.TransformationOnActionId || $scope.TestData.ActionId == $scope.ActionConstants.TransformationOffActionId) {
+          crudService.getAll(ngAppSettings.TransformationCategoryUrl.format($stateParams.WebsiteId)).then(function (response) {
+            $scope.TransformationCategoryList = response;
+            $scope.InputControlDisplayStatus.txtValue = false;
+          });
+        }
         else {
           if ($scope.PagesList.length == 0) {
             crudService.getAll(ngAppSettings.WebSitePagesUrl.format($stateParams.WebsiteId)).then(function (response) {

@@ -114,6 +114,8 @@
     <Compile Include="Dto\TblSharedTestDto.cs" />
     <Compile Include="Dto\TblTestCategoriesDto.cs" />
     <Compile Include="Dto\TblTestQueueDto.cs" />
+    <Compile Include="Dto\TblTransformationDto.cs" />
+    <Compile Include="Dto\TblTransformationCategoryDto.cs" />
     <Compile Include="Dto\TblUserProfileDto.cs" />
     <Compile Include="Dto\TblRequestTypesDto.cs" />
     <Compile Include="Enum\ActionTypes.cs" />

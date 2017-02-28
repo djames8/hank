@@ -236,6 +236,22 @@ namespace Elephant.Hank.DataService
         public DbSet<TblReportExecutionLinkData> TblReportExecutionLinkData { get; set; }
 
         /// <summary>
+        /// Gets or sets the table transformation category.
+        /// </summary>
+        /// <value>
+        /// The table transformation category.
+        /// </value>
+        public DbSet<TblTransformationCategory> TblTransformationCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the table transformation.
+        /// </summary>
+        /// <value>
+        /// The table transformation.
+        /// </value>
+        public DbSet<TblTransformation> TblTransformation { get; set; }
+
+        /// <summary>
         /// override save changes
         /// </summary>
         /// <returns>Save status</returns>
@@ -400,6 +416,8 @@ namespace Elephant.Hank.DataService
             modelBuilder.Entity<TblTicketHistory>().ToTable("TblTicketHistory", DefaultSchema);
             modelBuilder.Entity<TblTicketComment>().ToTable("TblTicketComment", DefaultSchema);
             modelBuilder.Entity<TblReportExecutionLinkData>().ToTable("TblReportExecutionLinkData", DefaultSchema);
+            modelBuilder.Entity<TblTransformationCategory>().ToTable("TblTransformationCategory", DefaultSchema);
+            modelBuilder.Entity<TblTransformation>().ToTable("TblTransformation", DefaultSchema);
         }
 
         /// <summary>

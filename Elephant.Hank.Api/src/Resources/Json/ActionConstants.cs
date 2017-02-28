@@ -366,5 +366,47 @@ namespace Elephant.Hank.Resources.Json
                 return ConfigurationManager.AppSettings["CloseBrowserActionId"].ToInt64();
             }
         }
+
+        /// <summary>
+        /// Gets the transformation on action identifier.
+        /// </summary>
+        /// <value>
+        /// The transformation on action identifier.
+        /// </value>
+        public long TransformationOnActionId
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["TransformationOnActionId"].ToInt64();
+            }
+        }
+
+        /// <summary>
+        /// Gets the transformation off action identifier.
+        /// </summary>
+        /// <value>
+        /// The transformation off action identifier.
+        /// </value>
+        public long TransformationOffActionId
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["TransformationOffActionId"].ToInt64();
+            }
+        }
+
+        /// <summary>
+        /// Gets the close current tab action identifier.
+        /// </summary>
+        /// <value>
+        /// The close current tab action identifier.
+        /// </value>
+        public long CloseCurrentTabActionId
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["CloseCurrentTabActionId"].ToInt64();
+            }
+        }
     }
 }

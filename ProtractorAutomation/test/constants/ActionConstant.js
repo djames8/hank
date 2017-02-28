@@ -53,6 +53,9 @@ var ActionConstant = function () {
     this.MarkLoadReportData = 'Mark Load Data From Report';
     this.SetCalenderDate = 'Set Calendar Date';
     this.ReadAttribute = 'Read Attribute';
+    this.TransformationOn = 'Transformation On';
+    this.TransformationOff = 'Transformation Off';
+    this.CloseCurrentTab = 'Close Current Tab'
 };
 
 module.exports = ActionConstant;

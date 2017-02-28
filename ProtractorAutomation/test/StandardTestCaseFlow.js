@@ -3,6 +3,7 @@
  */
 'use strict';
 
+
 var StandardTestCaseFlow =
     function () {
         var RestApiHelper = require('./helpers/RestApiHelper.js');
@@ -19,6 +20,7 @@ var StandardTestCaseFlow =
         var controlFlowHelper = new ControlFlowHelper();
         var JsonHelper = require('./helpers/JsonHelper.js');
         var jsonHelper = new JsonHelper();
+
 
         var params = browser.params;
 
@@ -92,10 +94,11 @@ var StandardTestCaseFlow =
                                     browser.get(params.config.urlToTest);
                                     var key;
                                     for (var i = 0; i < testDataList.length; i++) {
+                                        testDataList[i].WebsiteId = website.Id;
                                         if (!!testDataList[i].LocatorIdentifier) {
                                             var variableInLocatorIdentifierList = testDataList[i].LocatorIdentifier.match(/\{([^}]+)\}/g) || [];
                                             if (variableInLocatorIdentifierList.length > 0) {
-                                                controlFlowHelper.setControl(testDataList[i], testCase.TestName, TakeScreenShot, TakeScreenShotBrowser, i,variableInLocatorIdentifierList);
+                                                controlFlowHelper.setControl(testDataList[i], testCase.TestName, TakeScreenShot, TakeScreenShotBrowser, i, variableInLocatorIdentifierList);
                                             }
                                             else {
                                                 key = inputHelper.setLocator(testDataList[i], testCase.TestName, TakeScreenShot, TakeScreenShotBrowser, i);

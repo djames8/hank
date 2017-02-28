@@ -12,6 +12,9 @@ var InputHelper = function () {
     var LocatorTypeConstant = require('./../constants/LocatorTypeConstant.js');
     var locatorTypeConstant = new LocatorTypeConstant();
 
+    var Transformation = require('./Transformation.js');
+    var transformation = new Transformation();
+
     var JsonHelper = require('./JsonHelper.js');
     var jsonHelper = new JsonHelper();
 
@@ -36,6 +39,7 @@ var InputHelper = function () {
     var TakeScreenShot = false;
     var TakeScreenShotBrowser = null;
     var GlobalAutoIncrementArray = [];
+
 
     this.setLocator = function (testInstance, testName, takeScreenShot, takeScreenShotBrowser) {
         TakeScreenShot = takeScreenShot != undefined ? takeScreenShot : TakeScreenShot;
@@ -245,7 +249,7 @@ var InputHelper = function () {
     this.setInput = function (key, testInstance, testName) {
         if (key != null) {
             this.GetSharedVariable(testInstance);
-            if (testInstance.VariableName.trim() == '' || testInstance.VariableName.startsWith('#arraycompare') || testInstance.VariableName.startsWith('#arraycontain') || testInstance.Action == actionConstant.ReadAttribute || testInstance.Action == actionConstant.LogText || testInstance.Action == actionConstant.DeclareVariable || testInstance.Action == actionConstant.SetVariable || testInstance.Action == actionConstant.SetVariableManually || testInstance.Action == actionConstant.ReadControlText) {
+            if (testInstance.VariableName.trim() == '' || testInstance.VariableName.startsWith('#arraycompare') || testInstance.VariableName.startsWith('#arraycontain') || testInstance.Action == actionConstant.ReadAttribute || testInstance.Action == actionConstant.LogText || testInstance.Action == actionConstant.DeclareVariable || testInstance.Action == actionConstant.SetVariable || testInstance.Action == actionConstant.SetVariableManually || testInstance.Action == actionConstant.ReadControlText || testInstance.Action == actionConstant.TransformationOn ||  testInstance.Action == actionConstant.CloseCurrentTab) {
                 switch (testInstance.Action) {
                     case actionConstant.SetText:
                     {
@@ -549,8 +553,10 @@ var InputHelper = function () {
                     }
                     case actionConstant.AssertUrlToContain:
                     {
-                        expect(browser.getCurrentUrl()).toContain(testInstance.Value);
-                        browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
+                        browser.getCurrentUrl().then(function (url) {
+                            expect(url).toContain(testInstance.Value);
+                            browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
+                        });
                         break;
                     }
                     case actionConstant.HandleBrowserAlertPopup:
@@ -618,7 +624,7 @@ var InputHelper = function () {
                     case actionConstant.SwitchToWindow:
                     {
                         browser.getAllWindowHandles().then(function (handles) {
-                            newWindowHandle = handles[1];
+                            newWindowHandle = handles[handles.length - 1];
                             browser.switchTo().window(newWindowHandle).then(function () {
                             });
                         });
@@ -677,9 +683,10 @@ var InputHelper = function () {
                                     'TestId': resultMessage.Item.TestId,
                                     'Status': false
                                 });
-                            }, function () {
+                            }, function (resp) {
                                 // console.log("inside reject callback function ");
                                 expect("Call to url= " + browser.params.config.baseApiUrl + 'api/website/0/report-link-data/' + testInstance.Id + '/' + testInstance.SharedTestDataId + "Gives no data").toEqual(" ")
+                                Item.VariableStates;
                             });
                         });
                         break;
@@ -729,6 +736,29 @@ var InputHelper = function () {
                                 expect("Attribute with name " + testInstance.Value + " doesn't Not found").toEqual(" ");
                             }
                         });
+                        break;
+                    }
+                    case actionConstant.TransformationOn:
+                    {
+                        browser.controlFlow().execute(function () {
+                            console.log("Inside TransformationOn Action");
+                            transformation.set(testInstance);
+                        });
+                        break;
+                    }
+
+                    case actionConstant.TransformationOff:
+                    {
+                        browser.controlFlow().execute(function () {
+                            console.log("Inside TransformationOn Action");
+                            transformation.turnOffTransformation(testInstance);
+                        });
+                        break;
+                    }
+
+                    case actionConstant.CloseCurrentTab:
+                    {
+                        browser.driver.close();
                         break;
                     }
 
@@ -1010,6 +1040,9 @@ var InputHelper = function () {
                 targetVal = targetVal.toUpperCase();
             }
 
+            expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
+            targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
+
             expect(expectedVal).not.toEqual(targetVal);
 
             browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
@@ -1024,7 +1057,7 @@ var InputHelper = function () {
             if (testInstance.VariableName.startsWith('#arraycompare')) {
                 browser.getCurrentUrl().then(function (urle) {
                     var splitedVar = testInstance.VariableName.split('#');
-                    var assertresult = customAssertHelper.arrayComparisionAssert(splitedVar[2], splitedVar[3], false);
+                    var assertresult = customAssertHelper.arrayComparisionAssert(splitedVar[2], splitedVar[3], false, transformation);
 
                     if (assertresult) {
 
@@ -1049,6 +1082,9 @@ var InputHelper = function () {
                     expectedVal = expectedVal.toUpperCase();
                     targetVal = targetVal.toUpperCase();
                 }
+
+                expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
+                targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
 
                 expect(expectedVal).toEqual(targetVal);
                 browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
@@ -1079,6 +1115,9 @@ var InputHelper = function () {
                     targetVal = targetVal.toUpperCase();
                 }
 
+                expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
+                targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
+
                 expect(expectedVal).toContain(targetVal);
                 browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
             }
@@ -1090,7 +1129,14 @@ var InputHelper = function () {
 
     this.performAssertCountToEqual = function (executionSequence, key, value) {
         key.getText().then(function (item) {
-            expect(item.length + "").toEqual(value);
+
+            var expectedVal = item.length + "";
+            var targetVal = value;
+
+            expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
+            targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
+
+            expect(expectedVal).toEqual(targetVal);
             browser.params.config.LastStepExecuted = executionSequence;
         });
     };
@@ -1108,6 +1154,9 @@ var InputHelper = function () {
                 textVal = textVal.toUpperCase();
                 _value = _value.toUpperCase()
             }
+
+            _value = !!transformation.getTransformation(_value) ? transformation.getTransformation(_value) : _value;
+            textVal = !!transformation.getTransformation(textVal) ? transformation.getTransformation(textVal) : textVal;
 
             if (operationType == 1) { // To Equals
                 expect(_value).toEqual(textVal);
@@ -1153,9 +1202,9 @@ var InputHelper = function () {
         }
         else {
             value = value.replace('  ', ' ').toLowerCase().trim();
-            var xpth = "option[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='" +  value + "']";
+            var xpth = "option[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='" + value + "']";
             console.log("xpth= " + xpth);
-            key.element(by.xpath(xpth)).click().then(function(){
+            key.element(by.xpath(xpth)).click().then(function () {
                 browser.params.config.LastStepExecuted = executionSequence;
             });
         }
