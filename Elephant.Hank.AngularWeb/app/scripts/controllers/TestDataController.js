@@ -176,7 +176,6 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
         switch ($scope.TestData.LinkTestType) {
           case 0:
           {
-            debugger;
             if ($scope.VariableList.length == 0) {
               crudService.getAll(ngAppSettings.TestDataGetVariableForAutoComplete.format($stateParams.WebsiteId, $stateParams.TestCatId, $stateParams.TestId)).then(function (response) {
                 $scope.VariableList = response;
@@ -225,6 +224,7 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
               $scope.InputControlDisplayStatus.ddlPage = true;
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
               $scope.InputControlDisplayStatus.ddlDisplayName = true;
+              $scope.InputControlDisplayStatus.txtValue = true;
             }
             else if (($scope.TestData.ActionId == $scope.ActionConstants.AssertToEqualActionId
               || $scope.TestData.ActionId == $scope.ActionConstants.AssertToEqualIgnoreCaseActionId
@@ -684,7 +684,7 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
               $scope.PagesList = response;
               $scope.InputControlDisplayStatus.ddlPage = true;
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
-              $scope.InputControlDisplayStatus.txtValue = false;
+              $scope.InputControlDisplayStatus.txtValue = true;
             }, function (response) {
               commonUi.showErrorPopup(response);
             });

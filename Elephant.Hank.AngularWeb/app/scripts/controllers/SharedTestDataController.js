@@ -178,6 +178,7 @@ app.controller('SharedTestDataController', ['$scope', '$q', '$stateParams', '$st
               $scope.InputControlDisplayStatus.ddlPage = true;
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
               $scope.InputControlDisplayStatus.ddlDisplayName = true;
+              $scope.InputControlDisplayStatus.txtValue = true;
             }
             else if (($scope.SharedTestData.ActionId == $scope.ActionConstants.AssertToEqualActionId || $scope.SharedTestData.ActionId == $scope.ActionConstants.AssertToContainActionId) && $scope.SharedTestData.LocatorIdentifierId == undefined) {
               $scope.InputControlDisplayStatus.ddlPageNonValidation = true;
@@ -513,7 +514,7 @@ app.controller('SharedTestDataController', ['$scope', '$q', '$stateParams', '$st
               $scope.PagesList = response;
               $scope.InputControlDisplayStatus.ddlPage = true;
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
-              $scope.InputControlDisplayStatus.txtValue = false;
+              $scope.InputControlDisplayStatus.txtValue = true;
             }, function (response) {
               commonUi.showErrorPopup(response);
             });
