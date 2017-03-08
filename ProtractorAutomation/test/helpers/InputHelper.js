@@ -249,7 +249,7 @@ var InputHelper = function () {
     this.setInput = function (key, testInstance, testName) {
         if (key != null) {
             this.GetSharedVariable(testInstance);
-            if (testInstance.VariableName.trim() == '' || testInstance.VariableName.startsWith('#arraycompare') || testInstance.VariableName.startsWith('#arraycontain') || testInstance.Action == actionConstant.ReadAttribute || testInstance.Action == actionConstant.LogText || testInstance.Action == actionConstant.DeclareVariable || testInstance.Action == actionConstant.SetVariable || testInstance.Action == actionConstant.SetVariableManually || testInstance.Action == actionConstant.ReadControlText || testInstance.Action == actionConstant.TransformationOn ||  testInstance.Action == actionConstant.CloseCurrentTab) {
+            if (testInstance.VariableName.trim() == '' || testInstance.VariableName.startsWith('#arraycompare') || testInstance.VariableName.startsWith('#arraycontain') || testInstance.Action == actionConstant.ReadAttribute || testInstance.Action == actionConstant.LogText || testInstance.Action == actionConstant.DeclareVariable || testInstance.Action == actionConstant.SetVariable || testInstance.Action == actionConstant.SetVariableManually || testInstance.Action == actionConstant.ReadControlText || testInstance.Action == actionConstant.TransformationOn || testInstance.Action == actionConstant.CloseCurrentTab) {
                 switch (testInstance.Action) {
                     case actionConstant.SetText:
                     {
@@ -858,20 +858,133 @@ var InputHelper = function () {
                     }
                     else if (tagName == "div" && !!isHankDataTable && isSetVar) {
                         var tblData = [];
+                        var tr_count = 1;
                         key.all(by.css('.hank-tr')).each(function (trEle, trInd) {
-                            tblData[trInd] = [];
-                            trEle.all(by.css('.hank-td')).each(function (tdEle, tdInd) {
-                                tdEle.getText().then(function (text) {
-                                    if (tableFormat == 'horizontal') {
-                                        tblData[trInd][tdInd] = text;
+                            //console.log("hank-tr-index= " + trInd);
+
+                            trEle.getAttribute('hank-transaction-type').then(function (transactionType) {
+                                trEle.click().then(function () {
+                                    tblData[trInd] = [];
+                                    //console.log("hank-tr-index)000000000000********= " + trInd + " transactionType= " + transactionType);
+                                    trEle.all(by.css('.hank-td')).each(function (tdEle, tdInd) {
+                                        tdEle.getText().then(function (text) {
+                                            tblData[trInd][tdInd] = text;
+                                        });
+                                    }).then(function () {
+                                        if (transactionType == 'Invoice') {
+                                            var invoiceNumber;
+                                            trEle.element(by.css('.hank-invoice-number')).getText().then(function (inv) {
+                                                //console.log("Invoice Number= " + inv);
+                                                invoiceNumber = inv;
+                                            });
+                                            //console.log("hank-tr-index-1-then********= " + trInd);
+                                            //console.log("start tr_count= " + tr_count);
+                                            if (trInd == 1) {
+                                                tblData[0][tblData[0].length] = 'Idicative Column';
+                                                tblData[0][tblData[0].length] = 'Amount Break Up';
+                                                tblData[0][tblData[0].length] = 'Invoice Number';
+                                            }
+
+                                            //console.log("tblData:- ");
+                                            //console.log(tblData);
+                                            trEle.all(by.css('.hank-tr-inner')).each(function (trInnerEle, trInnerInd) {
+                                                trInnerEle.all(by.css('.hank-td-inner')).each(function (tdInnerEle, tdInnerInd) {
+
+                                                   // console.log("inside start of trInnerEle trInnerInd= " + trInnerInd);
+                                                   // console.log("inside start of tdInnerEle tdInnerInd= " + tdInnerInd);
+
+                                                    tdInnerEle.getText().then(function (text) {
+                                                        if (tdInnerInd == 0) {
+                                                            for (var k = 0; k < tblData[0].length; k++) {
+                                                                if (tblData[0][k] == 'Idicative Column') {
+                                                                    break;
+                                                                }
+                                                            }
+                                                           // console.log("**indicative k:- " + k + " **tr_count " + tr_count + " text= " + text);
+                                                            if (tblData[tr_count] == undefined) {
+                                                             //   console.log("inside undefined");
+                                                                tblData[tr_count] = [];
+                                                                for (var j = 0; j < tblData[tr_count - 1].length; j++) {
+                                                                    tblData[tr_count][j] = tblData[tr_count - 1][j];
+                                                                }
+                                                            }
+                                                            //console.log("tblData 0000****:- ");
+                                                           // console.log(tblData);
+                                                            tblData[tr_count][k] = text;
+                                                           // console.log("tblData 11111****:- ");
+                                                            //console.log(tblData);
+                                                        }
+                                                        else {
+                                                            for (k = 0; k < tblData[0].length; k++) {
+                                                                if (tblData[0][k] == 'Amount Break Up') {
+                                                                    break;
+                                                                }
+                                                            }
+                                                            tblData[tr_count][k] = text;
+                                                            //console.log("tblData 22222 ****:- ");
+                                                            //console.log(tblData);
+                                                            //console.log("increaseing tr_count:- " + tr_count);
+                                                            for (k = 0; k < tblData[0].length; k++) {
+                                                                if (tblData[0][k] == 'Invoice Number') {
+                                                                    break;
+                                                                }
+                                                            }
+
+                                                            //console.log("******************tblData last****************** tr_count= " + tr_count + " k= " + k)
+                                                            //console.log(tblData);
+                                                            tblData[tr_count][k] = invoiceNumber;
+                                                            tr_count++;
+                                                        }
+
+                                                    });
+                                                });
+
+                                            });
+
+
+                                        }
+                                    });
+
+                                    if (transactionType == 'Payment') {
+                                        trEle.all(by.css('.hank-tr-inner')).each(function (trInnerEle, trInnerInd) {
+                                            trInnerEle.all(by.css('.hank-td-inner')).each(function (tdInnerEle, tdInnerInd) {
+                                                tdInnerEle.getText().then(function (text) {
+
+                                                    if (tdInnerInd == 0) {
+                                                        var isHeadExist = false;
+                                                        for (var k = 0; k < tblData[0].length; k++) {
+                                                            if (tblData[0][k] == text) {
+                                                                isHeadExist = true;
+                                                                break;
+                                                            }
+                                                        }
+                                                        if (!isHeadExist) {
+                                                            tblData[0][tblData[0].length] = text;
+                                                        }
+                                                    }
+                                                    else {
+                                                        tdInnerEle.getAttribute("hank-col-name").then(function (innerColName) {
+                                                            tdInnerEle.getAttribute("hank-row-index").then(function (rowIndex) {
+                                                                for (var k = 0; k < tblData[0].length; k++) {
+                                                                    if (tblData[0][k] == innerColName) {
+                                                                        tblData[parseInt(rowIndex) + 1][k] = text;
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            });
+                                                        });
+
+                                                    }
+                                                })
+                                            })
+                                        });
                                     }
-                                    if (tableFormat == 'vertical') {
-                                        tblData[tdInd][trInd] = text;
-                                    }
+
                                 });
                             });
-                        }).then(function () {
 
+
+                        }).then(function () {
                             onSuccess(JSON.stringify(tblData), tblData);
                         });
                     }
@@ -1043,7 +1156,7 @@ var InputHelper = function () {
             expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
             targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
 
-            expect(expectedVal).not.toEqual(targetVal);
+            expect(targetVal).not.toEqual(expectedVal);
 
             browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
         }
@@ -1086,7 +1199,7 @@ var InputHelper = function () {
                 expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
                 targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
 
-                expect(expectedVal).toEqual(targetVal);
+                expect(targetVal).toEqual(expectedVal);
                 browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
             }
         }
@@ -1118,7 +1231,7 @@ var InputHelper = function () {
                 expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
                 targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
 
-                expect(expectedVal).toContain(targetVal);
+                expect(targetVal).toContain(expectedVal);
                 browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
             }
         }
@@ -1136,7 +1249,7 @@ var InputHelper = function () {
             expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
             targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
 
-            expect(expectedVal).toEqual(targetVal);
+            expect(targetVal).toEqual(expectedVal);
             browser.params.config.LastStepExecuted = executionSequence;
         });
     };
