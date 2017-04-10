@@ -890,8 +890,8 @@ var InputHelper = function () {
                                             trEle.all(by.css('.hank-tr-inner')).each(function (trInnerEle, trInnerInd) {
                                                 trInnerEle.all(by.css('.hank-td-inner')).each(function (tdInnerEle, tdInnerInd) {
 
-                                                   // console.log("inside start of trInnerEle trInnerInd= " + trInnerInd);
-                                                   // console.log("inside start of tdInnerEle tdInnerInd= " + tdInnerInd);
+                                                    // console.log("inside start of trInnerEle trInnerInd= " + trInnerInd);
+                                                    // console.log("inside start of tdInnerEle tdInnerInd= " + tdInnerInd);
 
                                                     tdInnerEle.getText().then(function (text) {
                                                         if (tdInnerInd == 0) {
@@ -900,18 +900,18 @@ var InputHelper = function () {
                                                                     break;
                                                                 }
                                                             }
-                                                           // console.log("**indicative k:- " + k + " **tr_count " + tr_count + " text= " + text);
+                                                            // console.log("**indicative k:- " + k + " **tr_count " + tr_count + " text= " + text);
                                                             if (tblData[tr_count] == undefined) {
-                                                             //   console.log("inside undefined");
+                                                                //   console.log("inside undefined");
                                                                 tblData[tr_count] = [];
                                                                 for (var j = 0; j < tblData[tr_count - 1].length; j++) {
                                                                     tblData[tr_count][j] = tblData[tr_count - 1][j];
                                                                 }
                                                             }
                                                             //console.log("tblData 0000****:- ");
-                                                           // console.log(tblData);
+                                                            // console.log(tblData);
                                                             tblData[tr_count][k] = text;
-                                                           // console.log("tblData 11111****:- ");
+                                                            // console.log("tblData 11111****:- ");
                                                             //console.log(tblData);
                                                         }
                                                         else {
@@ -1153,8 +1153,8 @@ var InputHelper = function () {
                 targetVal = targetVal.toUpperCase();
             }
 
-            expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
-            targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
+            expectedVal = transformation.getTransformation(expectedVal) || expectedVal;
+            targetVal = transformation.getTransformation(targetVal) || targetVal;
 
             expect(targetVal).not.toEqual(expectedVal);
 
@@ -1196,8 +1196,8 @@ var InputHelper = function () {
                     targetVal = targetVal.toUpperCase();
                 }
 
-                expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
-                targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
+                expectedVal = transformation.getTransformation(expectedVal) || expectedVal;
+                targetVal = transformation.getTransformation(targetVal) || targetVal;
 
                 expect(targetVal).toEqual(expectedVal);
                 browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
@@ -1228,8 +1228,8 @@ var InputHelper = function () {
                     targetVal = targetVal.toUpperCase();
                 }
 
-                expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
-                targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
+                expectedVal = transformation.getTransformation(expectedVal) || expectedVal;
+                targetVal = transformation.getTransformation(targetVal) || targetVal;
 
                 expect(targetVal).toContain(expectedVal);
                 browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
@@ -1246,8 +1246,8 @@ var InputHelper = function () {
             var expectedVal = item.length + "";
             var targetVal = value;
 
-            expectedVal = !!transformation.getTransformation(expectedVal) ? transformation.getTransformation(expectedVal) : expectedVal;
-            targetVal = !!transformation.getTransformation(targetVal) ? transformation.getTransformation(targetVal) : targetVal;
+            expectedVal = transformation.getTransformation(expectedVal) || expectedVal;
+            targetVal = transformation.getTransformation(targetVal) || targetVal;
 
             expect(targetVal).toEqual(expectedVal);
             browser.params.config.LastStepExecuted = executionSequence;
@@ -1268,8 +1268,8 @@ var InputHelper = function () {
                 _value = _value.toUpperCase()
             }
 
-            _value = !!transformation.getTransformation(_value) ? transformation.getTransformation(_value) : _value;
-            textVal = !!transformation.getTransformation(textVal) ? transformation.getTransformation(textVal) : textVal;
+            _value = transformation.getTransformation(_value) || _value;
+            textVal = transformation.getTransformation(textVal) || textVal;
 
             if (operationType == 1) { // To Equals
                 expect(_value).toEqual(textVal);
@@ -1317,6 +1317,9 @@ var InputHelper = function () {
             value = value.replace('  ', ' ').toLowerCase().trim();
             var xpth = "option[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='" + value + "']";
             console.log("xpth= " + xpth);
+            console.log(key);
+            key.findElements(by.xpath(xpth)).click();
+
             key.element(by.xpath(xpth)).click().then(function () {
                 browser.params.config.LastStepExecuted = executionSequence;
             });
