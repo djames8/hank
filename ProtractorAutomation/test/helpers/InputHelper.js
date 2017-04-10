@@ -1181,7 +1181,7 @@ var InputHelper = function () {
             else if (testInstance.VariableName.startsWith('#arraycontain')) {
                 browser.getCurrentUrl().then(function (urle) {
                     var splitedVar = testInstance.VariableName.split('#');
-                    var assertresult = customAssertHelper.arrayComparisionAssert(splitedVar[2], splitedVar[3], true);
+                    var assertresult = customAssertHelper.arrayComparisionAssert(splitedVar[2], splitedVar[3], true,transformation);
                     if (assertresult) {
                         expect("array one contains in second array").toEqual("array one contains in second array");
                     }
@@ -1213,7 +1213,7 @@ var InputHelper = function () {
             if (testInstance.VariableName.startsWith('#arraycontain')) {
                 browser.getCurrentUrl().then(function (urle) {
                     var splitedVar = testInstance.VariableName.split('#');
-                    var assertresult = customAssertHelper.arrayComparisionAssert(splitedVar[2], splitedVar[3], true);
+                    var assertresult = customAssertHelper.arrayComparisionAssert(splitedVar[2], splitedVar[3], true,transformation);
                     if (assertresult) {
                         expect("array one contains in second array").toEqual("array one contains in second array");
                     }
