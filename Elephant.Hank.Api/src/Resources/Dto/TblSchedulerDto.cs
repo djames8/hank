@@ -152,5 +152,10 @@ namespace Elephant.Hank.Resources.Dto
         /// Gets or sets the LastUpdatedBy
         /// </summary>
         public string LastUpdatedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the execution group.
+        /// </summary>
+        public string ExecutionGroupName { get; set; }
     }
 }

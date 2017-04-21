@@ -227,7 +227,10 @@ namespace Elephant.Hank.Framework.TestDataServices
                                 ResultMessage<TblApiConnectionDto> apiConnectionDto = this.apiConncetionService.GetByEnvironmentAndCategoryId(environMentId, item.ApiTestData.ApiCategoryId.Value);
                                 item.ApiUrl = (item.ApiTestData.ApiUrl.IsBlank() ? apiConnectionDto.Item.BaseUrl : item.ApiTestData.ApiUrl).Trim();
 
-                                item.ApiUrl += ((item.ApiUrl.EndsWith("\\") || item.ApiUrl.EndsWith("/")) ? string.Empty : "/") + item.ApiTestData.EndPoint;
+                                if (item.ApiTestData.EndPoint.IsNotBlank())
+                                {
+                                    item.ApiUrl += ((item.ApiUrl.EndsWith("\\") || item.ApiUrl.EndsWith("/")) ? string.Empty : "/") + item.ApiTestData.EndPoint;
+                                }
 
                                 item.Headers = item.ApiTestData.Headers ?? new List<NameValuePair>();
 

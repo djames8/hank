@@ -22,6 +22,7 @@ namespace Elephant.Hank.Framework.TestDataServices
     using Elephant.Hank.Framework.Data;
     using Elephant.Hank.Resources.Dto;
     using Elephant.Hank.Resources.Enum;
+    using Elephant.Hank.Resources.Extensions;
     using Elephant.Hank.Resources.Messages;
 
     /// <summary>
@@ -110,6 +111,21 @@ namespace Elephant.Hank.Framework.TestDataServices
             {
                 var mapper = this.mapperFactory.GetMapper<TblSchedulerHistory, TblSchedulerHistoryDto>();
                 result.Item = mapper.Map(entity);
+
+                if (entity.SettingsJson.IsNotBlank())
+                {
+                    var extraDataIndex = entity.SettingsJson.IndexOf("ExtraDataPostedByCaller", StringComparison.InvariantCultureIgnoreCase);
+
+                    if (extraDataIndex > 0)
+                    {
+                        var status = entity.SettingsJson.IndexOf("COMPLETED", extraDataIndex, StringComparison.InvariantCultureIgnoreCase);
+
+                        if (status < 0)
+                        {
+                            result.Item.Status = SchedulerExecutionStatus.CancelledCallBackIssue;
+                        }
+                    }
+                }
             }
             else
             {
@@ -151,7 +167,7 @@ namespace Elephant.Hank.Framework.TestDataServices
                 // Mark tests processed
                 this.testQueueService.UpdateTestQueueProcessingFlag(userId, groupName, true);
             }
-            else if (status == SchedulerExecutionStatus.Cancelled)
+            else if (status == SchedulerExecutionStatus.Cancelled || status == SchedulerExecutionStatus.CancelledCallBackIssue)
             {
                 this.testQueueService.UpdateTestQueueStatusByGroupName(userId, groupName, ExecutionReportStatus.Cancelled);
             }

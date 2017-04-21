@@ -43,6 +43,11 @@ namespace Elephant.Hank.DataService.DBSchema
         public string GroupName { get; set; }
 
         /// <summary>
+        /// Gets or sets the settings json.
+        /// </summary>
+        public string SettingsJson { get; set; }
+
+        /// <summary>
         /// Gets or sets the email status.
         /// </summary>
         public SchedulerHistoryEmailStatus? EmailStatus { get; set; }

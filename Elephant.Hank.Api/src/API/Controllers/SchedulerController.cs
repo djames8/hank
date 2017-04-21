@@ -13,6 +13,8 @@ namespace Elephant.Hank.Api.Controllers
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Threading.Tasks;
     using System.Web.Http;
 
     using Elephant.Hank.Api.Security;
@@ -205,7 +207,7 @@ namespace Elephant.Hank.Api.Controllers
             var result = new ResultMessage<TblSchedulerDto>();
             try
             {
-                result = this.schedulerService.ForceExecute(this.UserId, schedulerId);
+                result = this.schedulerService.ForceExecute(this.UserId, schedulerId, null, null, null);
             }
             catch (Exception ex)
             {
@@ -231,7 +233,39 @@ namespace Elephant.Hank.Api.Controllers
             var result = new ResultMessage<string>();
             try
             {
-                result = this.schedulerService.ForceExecute(this.UserId, schedulerId, target, port);
+                var resultDto = this.schedulerService.ForceExecute(this.UserId, schedulerId, target, port, null);
+
+                result.Messages.AddRange(resultDto.Messages);
+
+                if (resultDto.Item != null)
+                {
+                    result.Item = resultDto.Item.ExecutionGroupName;
+                }
+            }
+            catch (Exception ex)
+            {
+                this.LoggerService.LogException(ex);
+                result.Messages.Add(new Message(null, ex.Message));
+            }
+
+            return this.CreateCustomResponse(result);
+        }
+
+        /// <summary>
+        /// sets the force execute flag to true by external entities
+        /// </summary>
+        /// <param name="schedulerId">the scheduler identifier</param>
+        /// <returns>TblSchedulerSuiteDto objects</returns>
+        [HttpPost]
+        [Route("{schedulerId}/force-execute-external")]
+        public async Task<IHttpActionResult> ForceExecuteExternal(long schedulerId)
+        {
+            var result = new ResultMessage<TblSchedulerDto>();
+            try
+            {
+                string requestContent = await Request.Content.ReadAsStringAsync();
+
+                result = this.schedulerService.ForceExecute(this.UserId, schedulerId, null, null, requestContent);
             }
             catch (Exception ex)
             {

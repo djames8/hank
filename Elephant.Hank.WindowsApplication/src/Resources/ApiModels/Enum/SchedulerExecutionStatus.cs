@@ -49,6 +49,11 @@ namespace Elephant.Hank.WindowsApplication.Resources.ApiModels.Enum
         /// <summary>
         /// The cancelled
         /// </summary>
-        Cancelled
+        Cancelled,
+
+        /// <summary>
+        /// The cancelled call back issue
+        /// </summary>
+        CancelledCallBackIssue
     }
 }

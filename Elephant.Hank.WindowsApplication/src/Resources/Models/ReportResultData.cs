@@ -46,6 +46,7 @@ namespace Elephant.Hank.WindowsApplication.Resources.Models
                 this.FaultCount = this.ReportData.Count(x => x.Status == ExecutionReportStatus.Failed);
                 this.CancelledCount = this.ReportData.Count(x => x.Status == ExecutionReportStatus.Cancelled);
                 this.UnProcessedCount = this.ReportData.Count() - (this.PassedCount + this.FaultCount + this.CancelledCount);
+                this.CancelledPostFix = scheduler.Status == SchedulerExecutionStatus.CancelledCallBackIssue ? "(Due to error in callback data)" : string.Empty;
             }
         }
 
@@ -103,6 +104,11 @@ namespace Elephant.Hank.WindowsApplication.Resources.Models
         /// Gets or sets the cancelled count.
         /// </summary>
         public int CancelledCount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cancelled post fix.
+        /// </summary>
+        public string CancelledPostFix { get; set; }
 
         /// <summary>
         /// Gets the total count.

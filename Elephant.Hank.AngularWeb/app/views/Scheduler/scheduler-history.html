@@ -41,6 +41,7 @@
               <td>
                 <a href="/#/Website/{{StateParamsWebsiteId}}/Report/{{schedule.GroupName}}" title="View report"><i class="btn btn-primary fa fa-file-text"></i></a>
 
+                <button ng-if="schedule.Status == 6 || schedule.ExtraDataPostedByCaller" title="Callback post data" ng-click="showExtraCallBackData(schedule)" class="btn btn-info fa fa-info"></button>
                 <button ng-if="schedule.IsCancelAble" title="Cancel" ng-click="cancelExecution(schedule)" class="btn btn-danger fa fa-close"></button>
                 <button ng-if="schedule.IsResumeAble" title="Resume" ng-click="cancelExecution(schedule)" class="btn btn-success fa fa-check"></button>
               </td>

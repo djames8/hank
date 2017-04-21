@@ -5,15 +5,6 @@
     <Setting Name="ExecutionTimeLapseInMilli" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10000</Value>
     </Setting>
-    <Setting Name="BaseApiUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://10.140.3.1:26264/</Value>
-    </Setting>
-    <Setting Name="FrameworkBasePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\GitHub\selenium-grid\ProtractorAutomation-V-3.0</Value>
-    </Setting>
-    <Setting Name="BaseWebUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://localhost:9000/</Value>
-    </Setting>
     <Setting Name="FaultedEmailId" Type="System.String" Scope="User">
       <Value Profile="(Default)">gurpreet.singh@inspopindia.com</Value>
     </Setting>
@@ -25,6 +16,15 @@
     </Setting>
     <Setting Name="CleanerRunAtHour" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="BaseApiUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FrameworkBasePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\ProtractorCloneDevNewAPI\ProtractorAutomation</Value>
+    </Setting>
+    <Setting Name="BaseWebUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost:91/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

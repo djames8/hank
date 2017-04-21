@@ -58,6 +58,12 @@ namespace Elephant.Hank.Resources.Enum
         /// The completed
         /// </summary>
         [DisplayText("Cancelled")]
-        Cancelled
+        Cancelled,
+
+        /// <summary>
+        /// The cancelled call back issue
+        /// </summary>
+        [DisplayText("Cancelled due to callback data")]
+        CancelledCallBackIssue
     }
 }

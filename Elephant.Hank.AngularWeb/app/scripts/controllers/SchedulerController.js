@@ -49,6 +49,12 @@ app.controller('SchedulerController', ['$scope', '$q', '$filter', '$stateParams'
         $scope.Scheduler = response.Item;
         crudService.getAll(ngAppSettings.SchedulerHistoryUrl.format($stateParams.WebsiteId, $stateParams.Id)).then(function (response) {
           $scope.SchedulerHistory = response;
+
+          for(var i = 0; i < $scope.SchedulerHistory.length; i++){
+            if($scope.SchedulerHistory[i].SettingsJson){
+              $scope.SchedulerHistory[i].ExtraDataPostedByCaller = JSON.parse($scope.SchedulerHistory[i].SettingsJson).ExtraDataPostedByCaller;
+            }
+          }
         }, function (response) {
           commonUi.showErrorPopup(response);
         });
@@ -64,6 +70,10 @@ app.controller('SchedulerController', ['$scope', '$q', '$filter', '$stateParams'
       }, function (response) {
         commonUi.showErrorPopup(response);
       });
+    };
+
+    $scope.showExtraCallBackData = function(scheduleHistoryObj) {
+      commonUi.showErrorPopup(scheduleHistoryObj.ExtraDataPostedByCaller ? scheduleHistoryObj.ExtraDataPostedByCaller : "No call back data found!", "Callback post data");
     };
 
     $scope.addScheduler = function () {

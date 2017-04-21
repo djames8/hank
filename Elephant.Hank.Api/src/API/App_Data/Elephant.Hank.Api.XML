@@ -2970,6 +2970,13 @@
             <param name="port">The port.</param>
             <returns>Group name of batch</returns>
         </member>
+        <member name="M:Elephant.Hank.Api.Controllers.SchedulerController.ForceExecuteExternal(System.Int64)">
+            <summary>
+            sets the force execute flag to true by external entities
+            </summary>
+            <param name="schedulerId">the scheduler identifier</param>
+            <returns>TblSchedulerSuiteDto objects</returns>
+        </member>
         <member name="M:Elephant.Hank.Api.Controllers.SchedulerController.AddMultipleSuiteLinks(System.Collections.Generic.List{Elephant.Hank.Resources.Dto.Linking.TblLnkSchedulerSuiteDto},System.Int64)">
             <summary>
             Adds the multiple suite links.

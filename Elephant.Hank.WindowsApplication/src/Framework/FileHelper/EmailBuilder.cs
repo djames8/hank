@@ -52,7 +52,7 @@ namespace Elephant.Hank.WindowsApplication.Framework.FileHelper
             html = html.Replace("##Passed##", reportResultData.PassedCount.ToString())
                    .Replace("##Faulted##", reportResultData.FaultCount.ToString())
                    .Replace("##Total##", reportResultData.TotalCount.ToString())
-                   .Replace("##Cancelled##", reportResultData.CancelledCount.ToString())
+                   .Replace("##Cancelled##", reportResultData.CancelledCount + " " + reportResultData.CancelledPostFix)
                    .Replace("##UnProcessed##", reportResultData.UnProcessedCount.ToString())
                    .Replace("##ReportUrl##", string.Format(Properties.Settings.Default.BaseWebUrl + WebEndPoints.ReportByWebSiteId, reportResultData.WebsiteId));
 

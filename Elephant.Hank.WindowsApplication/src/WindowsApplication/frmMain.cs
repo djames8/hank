@@ -21,6 +21,7 @@ namespace Elephant.Hank.WindowsApplication
     using Elephant.Hank.WindowsApplication.Framework.Processes;
     using Elephant.Hank.WindowsApplication.Resources;
     using Elephant.Hank.WindowsApplication.Resources.Constants;
+    using Elephant.Hank.WindowsApplication.Resources.Extensions;
 
     /// <summary>
     /// The frmMain class
@@ -98,10 +99,15 @@ namespace Elephant.Hank.WindowsApplication
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void tmrSchedular_Tick(object sender, EventArgs e)
         {
-            Processor.ExecuteService(this.isPauseEvent);
+            var settings = SettingsHelper.Get();
 
-            this.dgRunning.DataSource = Processor.HubInfo.Select(x => new { StartedAt = x.Value.StartedAt, SchedulerId = x.Value.SchedulerId, TestQueueId = x.Value.TestQueueId, SeleniumAddress = x.Value.SeleniumAddress }).OrderBy(x => x.StartedAt).ToList();
-            this.dgInQueue.DataSource = Processor.QueuedTest.Select(x => new { CreatedAt = x.Value.CreatedOn, SchedulerId = x.Value.SchedulerId, TestQueueId = x.Value.TestQueueId, SeleniumAddress = x.Value.SeleniumAddress }).OrderBy(x => x.CreatedAt).ToList();
+            if (settings.BaseApiUrl.IsNotBlank())
+            {
+                Processor.ExecuteService(this.isPauseEvent);
+
+                this.dgRunning.DataSource = Processor.HubInfo.Select(x => new { StartedAt = x.Value.StartedAt, SchedulerId = x.Value.SchedulerId, TestQueueId = x.Value.TestQueueId, SeleniumAddress = x.Value.SeleniumAddress }).OrderBy(x => x.StartedAt).ToList();
+                this.dgInQueue.DataSource = Processor.QueuedTest.Select(x => new { CreatedAt = x.Value.CreatedOn, SchedulerId = x.Value.SchedulerId, TestQueueId = x.Value.TestQueueId, SeleniumAddress = x.Value.SeleniumAddress }).OrderBy(x => x.CreatedAt).ToList();
+            }
         }
 
         /// <summary>

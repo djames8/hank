@@ -182,10 +182,13 @@ namespace Elephant.Hank.WindowsApplication.Framework.Processes
                     }
                     else
                     {
-                        TestDataApi.Post(string.Format(EndPoints.SchedulerHistoryStatus, groupName, (int)SchedulerExecutionStatus.Cancelled), new List<SchedulerHistory>());
+                        TestDataApi.Post(string.Format(EndPoints.SchedulerHistoryStatus, groupName, schedulerHistory.Item.Status == SchedulerExecutionStatus.CancelledCallBackIssue ? (int)SchedulerExecutionStatus.CancelledCallBackIssue : (int)SchedulerExecutionStatus.Cancelled), new List<SchedulerHistory>());
                     }
 
-                    ProcessEmail(testQueue, groupName);
+                    if (schedulerHistory.Item != null)
+                    {
+                        ProcessEmail(testQueue, groupName, schedulerHistory.Item.Status);
+                    }
 
                     ImageProcessor.ProcessImages(groupName);
                 }
@@ -208,7 +211,8 @@ namespace Elephant.Hank.WindowsApplication.Framework.Processes
         /// </summary>
         /// <param name="testQueue">The test queue.</param>
         /// <param name="groupName">Name of the group.</param>
-        private static void ProcessEmail(ResultMessage<List<TestQueue>> testQueue, string groupName)
+        /// <param name="schedulerExecutionStatus">The scheduler execution status.</param>
+        private static void ProcessEmail(ResultMessage<List<TestQueue>> testQueue, string groupName, SchedulerExecutionStatus schedulerExecutionStatus)
         {
             var emailStatus = SchedulerHistoryEmailStatus.NotSent;
 
@@ -237,6 +241,7 @@ namespace Elephant.Hank.WindowsApplication.Framework.Processes
 
                         if (schedularData != null && !schedularData.IsError && schedularData.Item != null)
                         {
+                            schedularData.Item.Status = schedulerExecutionStatus;
                             var repostData = new ReportResultData(resultData.Item.Data, schedularData.Item, groupName);
                             emailStatus = emailProcessor.EmailReport(repostData);
                         }

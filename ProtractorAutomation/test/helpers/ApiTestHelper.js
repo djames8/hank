@@ -74,6 +74,7 @@ var ApiTestHelper = function () {
       if (message == undefined || message == "") {
         message = {body: "No response returned!"};
       }
+
       if (jsonHelper.isJson(message.body)) {
         resultMessage = JSON.parse(message.body);
         defer.fulfill(JSON.stringify(jsonHelper.converToTwoDimensionalArray(resultMessage)));
@@ -83,7 +84,7 @@ var ApiTestHelper = function () {
         defer.fulfill(JSON.stringify(jsonHelper.converToTwoDimensionalArray(parsedResult)));
       } else {
         resultMessage = {response: message.body};
-        defer.fulfill(JSON.stringify(jsonHelper.converToTwoDimensionalArray(err)));
+        defer.fulfill(JSON.stringify(jsonHelper.converToTwoDimensionalArray(resultMessage)));
       }
     });
 

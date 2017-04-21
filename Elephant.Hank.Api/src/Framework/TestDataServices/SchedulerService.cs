@@ -66,49 +66,19 @@ namespace Elephant.Hank.Framework.TestDataServices
         }
 
         /// <summary>
-        /// sets the force execute flag to true
-        /// </summary>
-        /// <param name="userId">The user identifier.</param>
-        /// <param name="schedulerId">scheduler identifier</param>
-        /// <returns>
-        /// object of TblSchedulerDto
-        /// </returns>
-        public ResultMessage<TblSchedulerDto> ForceExecute(long userId, long schedulerId)
-        {
-            var result = new ResultMessage<TblSchedulerDto>();
-
-            var entity = this.Table.Find(x => x.Id == schedulerId && x.IsDeleted != true).FirstOrDefault();
-
-            if (entity != null)
-            {
-                entity.ForceExecute = true;
-                entity.ModifiedBy = userId;
-                entity.ModifiedOn = DateTime.Now;
-
-                this.Table.Update(entity);
-
-                this.Table.Commit();
-
-                var mapper = this.mapperFactory.GetMapper<TblScheduler, TblSchedulerDto>();
-                result.Item = mapper.Map(entity);
-            }
-
-            return result;
-        }
-
-        /// <summary>
         /// Forces the execute.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <param name="schedulerId">The scheduler identifier.</param>
         /// <param name="target">The target.</param>
         /// <param name="port">The port.</param>
+        /// <param name="extraDataPostedByCaller">The extra data posted by caller.</param>
         /// <returns>
         /// Group name
         /// </returns>
-        public ResultMessage<string> ForceExecute(long userId, long schedulerId, string target, int? port)
+        public ResultMessage<TblSchedulerDto> ForceExecute(long userId, long schedulerId, string target, int? port, string extraDataPostedByCaller)
         {
-            var result = new ResultMessage<string>();
+            var result = new ResultMessage<TblSchedulerDto>();
 
             var entity = this.Table.Find(x => x.Id == schedulerId && x.IsDeleted != true).FirstOrDefault();
 
@@ -123,18 +93,21 @@ namespace Elephant.Hank.Framework.TestDataServices
                     entity.Settings = new SchedulerSettings();
                 }
 
-                entity.Settings.Target = target;
-                entity.Settings.Port = port;
-
+                entity.Settings.Target = target.IsNotBlank() ? target : entity.Settings.Target;
+                entity.Settings.Port = port.HasValue ? port : entity.Settings.Port;
+                entity.Settings.ExtraDataPostedByCaller = extraDataPostedByCaller.IsNotBlank() ? extraDataPostedByCaller : entity.Settings.ExtraDataPostedByCaller;
+                
                 this.Table.Update(entity);
 
                 this.Table.Commit();
 
                 var groupName = DateTime.Now.ToGroupName();
 
-                this.Table.ExecuteSqlCommand("select * from procprocessschedulerdata(@groupName)", new NpgsqlParameter("@groupName", groupName));
+                this.Table.ExecuteSqlCommand("select * from procprocessschedulerdata(@groupName, @userId)", new NpgsqlParameter("@groupName", groupName), new NpgsqlParameter("@userId", userId));
 
-                result.Item = groupName + "-" + schedulerId;
+                var mapper = this.mapperFactory.GetMapper<TblScheduler, TblSchedulerDto>();
+                result.Item = mapper.Map(entity);
+                result.Item.ExecutionGroupName = groupName + "-" + schedulerId;
             }
             else
             {

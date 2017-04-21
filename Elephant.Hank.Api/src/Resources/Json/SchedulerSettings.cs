@@ -72,5 +72,11 @@ namespace Elephant.Hank.Resources.Json
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int? Port { get; set; }
+
+        /// <summary>
+        /// Gets or sets the extra data posted by caller.
+        /// </summary>
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string ExtraDataPostedByCaller { get; set; }
     }
 }

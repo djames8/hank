@@ -104,5 +104,10 @@ namespace Elephant.Hank.WindowsApplication.Resources.ApiModels
         /// Gets or sets the frequency.
         /// </summary>
         public FrequencyEnum Frequency { get; set; }
+
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
+        public SchedulerExecutionStatus Status { get; set; }
     }
 }

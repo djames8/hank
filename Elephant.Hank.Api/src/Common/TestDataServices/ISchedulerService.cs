@@ -30,24 +30,17 @@ namespace Elephant.Hank.Common.TestDataServices
         ResultMessage<IEnumerable<TblSchedulerDto>> GetByWebsiteId(long webSiteId);
 
         /// <summary>
-        /// sets the force execute flag to true
-        /// </summary>
-        /// <param name="userId">The user identifier.</param>
-        /// <param name="schedulerId">scheduler identifier</param>
-        /// <returns>
-        /// object of TblSchedulerDto
-        /// </returns>
-        ResultMessage<TblSchedulerDto> ForceExecute(long userId, long schedulerId);
-
-        /// <summary>
         /// Forces the execute.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <param name="schedulerId">The scheduler identifier.</param>
         /// <param name="target">The target.</param>
         /// <param name="port">The port.</param>
-        /// <returns>Group name</returns>
-        ResultMessage<string> ForceExecute(long userId, long schedulerId, string target, int? port);
+        /// <param name="extraDataPostedByCaller">The extra data posted by caller.</param>
+        /// <returns>
+        /// TblSchedulerDto object
+        /// </returns>
+        ResultMessage<TblSchedulerDto> ForceExecute(long userId, long schedulerId, string target, int? port, string extraDataPostedByCaller);
 
         /// <summary>
         /// Gets the by URL identifier.

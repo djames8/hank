@@ -84,5 +84,10 @@ namespace Elephant.Hank.Resources.Dto
         /// Gets or sets a value indicating whether [ForceExecute test].
         /// </summary>
         public bool ForceExecute { get; set; }
+
+        /// <summary>
+        /// Gets or sets the settings json.
+        /// </summary>
+        public string SettingsJson { get; set; }
     }
 }
