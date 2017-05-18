@@ -249,7 +249,19 @@ var InputHelper = function () {
     this.setInput = function (key, testInstance, testName) {
         if (key != null) {
             this.GetSharedVariable(testInstance);
-            if (testInstance.VariableName.trim() == '' || testInstance.VariableName.startsWith('#arraycompare') || testInstance.VariableName.startsWith('#arraycontain') || testInstance.Action == actionConstant.ReadAttribute || testInstance.Action == actionConstant.LogText || testInstance.Action == actionConstant.DeclareVariable || testInstance.Action == actionConstant.SetVariable || testInstance.Action == actionConstant.SetVariableManually || testInstance.Action == actionConstant.ReadControlText || testInstance.Action == actionConstant.TransformationOn || testInstance.Action == actionConstant.CloseCurrentTab) {
+            if (testInstance.VariableName.trim() == ''
+                || testInstance.VariableName.startsWith('#arraycompare')
+                || testInstance.VariableName.startsWith('#arraycontain')
+                || testInstance.Action == actionConstant.ReadAttribute
+                || testInstance.Action == actionConstant.LogText
+                || testInstance.Action == actionConstant.DeclareVariable
+                || testInstance.Action == actionConstant.SetVariable
+                || testInstance.Action == actionConstant.ElementCount
+                || testInstance.Action == actionConstant.ElementChildCount
+                || testInstance.Action == actionConstant.SetVariableManually
+                || testInstance.Action == actionConstant.ReadControlText
+                || testInstance.Action == actionConstant.TransformationOn
+                || testInstance.Action == actionConstant.CloseCurrentTab) {
                 switch (testInstance.Action) {
                     case actionConstant.SetText:
                     {
@@ -754,13 +766,29 @@ var InputHelper = function () {
                         });
                         break;
                     }
-
                     case actionConstant.CloseCurrentTab:
                     {
                         browser.driver.close();
                         break;
                     }
-
+                    case actionConstant.ElementCount:
+                    {
+                        element.all(key.locator()).count().then(function(countVal){
+                            thisobj.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, countVal + "", testInstance.DisplayName);
+                            browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
+                        });
+                        break;
+                    }
+                    case actionConstant.ElementChildCount:
+                    {
+                        var script = 'function getCountChild(args){ var obj = args ? args[0] : undefined; var tagName = (args ? args[1] + "" : "").toLowerCase(); if(obj && obj.childNodes){ var count = 0; for(var i = 0; i < obj.childNodes.length; i++){ count += (tagName == "" || (obj.childNodes[i].tagName+"").toLowerCase() == tagName ? 1 : 0); } return count; } return 0; }';
+                        script += " return getCountChild(arguments)";
+                        browser.driver.executeScript(script, key.getWebElement(), testInstance.Value).then(function (data) {
+                            thisobj.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, data + "", testInstance.DisplayName);
+                            browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
+                        });
+                        break;
+                    }
                 }
             }
         }
@@ -1001,7 +1029,13 @@ var InputHelper = function () {
     };
 
     this.GetSharedVariable = function (testInstance) {
-        if (testInstance.VariableName.trim() != '' && testInstance.Action != actionConstant.ReadAttribute && testInstance.Action != actionConstant.SetVariable && testInstance.Action != actionConstant.SetVariableManually && testInstance.Action != actionConstant.ReadControlText) {
+        if (testInstance.VariableName.trim() != ''
+            && testInstance.Action != actionConstant.ReadAttribute
+            && testInstance.Action != actionConstant.SetVariable
+            && testInstance.Action != actionConstant.ElementCount
+            && testInstance.Action != actionConstant.ElementChildCount
+            && testInstance.Action != actionConstant.SetVariableManually
+            && testInstance.Action != actionConstant.ReadControlText) {
             if (!testInstance.VariableName.startsWith('#arrayco')) {
                 browser.getCurrentUrl().then(function (actualUrl) {
 

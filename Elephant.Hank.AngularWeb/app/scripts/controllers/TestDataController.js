@@ -220,7 +220,9 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
               $scope.InputControlDisplayStatus.txtValue = true;
             }
-            else if ($scope.TestData.ActionId == $scope.ActionConstants.SetVariableActionId) {
+            else if ($scope.TestData.ActionId == $scope.ActionConstants.SetVariableActionId
+              || $scope.TestData.ActionId == $scope.ActionConstants.ElementCount
+              || $scope.TestData.ActionId == $scope.ActionConstants.ElementChildCount) {
               $scope.InputControlDisplayStatus.ddlPage = true;
               $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
               $scope.InputControlDisplayStatus.ddlDisplayName = true;
@@ -678,7 +680,9 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
         else if ($scope.TestData.ActionId == $scope.ActionConstants.CloseCurrentTabActionId || $scope.TestData.ActionId == $scope.ActionConstants.TakeScreenShotActionId || $scope.TestData.ActionId == $scope.ActionConstants.SwitchWindowActionId || $scope.TestData.ActionId == $scope.ActionConstants.IgnoreLoadNeUrlActionId || $scope.TestData.ActionId == $scope.ActionConstants.TerminateTestActionId || $scope.TestData.ActionId == $scope.ActionConstants.SwitchToDefaultContentActionId) {
           $scope.InputControlDisplayStatus.txtValue = false;
         }
-        else if ($scope.TestData.ActionId == $scope.ActionConstants.SetVariableActionId) {
+        else if ($scope.TestData.ActionId == $scope.ActionConstants.SetVariableActionId
+        || $scope.TestData.ActionId == $scope.ActionConstants.ElementCount
+          || $scope.TestData.ActionId == $scope.ActionConstants.ElementChildCount) {
           if ($scope.PagesList.length == 0) {
             crudService.getAll(ngAppSettings.WebSitePagesUrl.format($stateParams.WebsiteId)).then(function (response) {
               $scope.PagesList = response;
@@ -692,7 +696,7 @@ app.controller('TestDataController', ['$scope', '$filter', '$rootScope', '$q', '
           else {
             $scope.InputControlDisplayStatus.ddlPage = true;
             $scope.InputControlDisplayStatus.txtAutoCompVariableName = true;
-            $scope.InputControlDisplayStatus.txtValue = false;
+            $scope.InputControlDisplayStatus.txtValue = true;
           }
         }
         else if ($scope.TestData.ActionId == $scope.ActionConstants.AssertToEqualActionId
