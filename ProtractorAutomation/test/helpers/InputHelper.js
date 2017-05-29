@@ -1152,8 +1152,18 @@ var InputHelper = function () {
                 }
             }
             else {
-                key.sendKeys(value).then(function () {
-                    browser.params.config.LastStepExecuted = executionSequence;
+                key.getAttribute("class").then(function(classNames){
+                    if(classNames && classNames.indexOf("ui-autocomplete-input")) {
+                        key.sendKeys(value).then(function () {
+                            browser.sleep(1000).then(function () {});
+                            key.sendKeys("\uE015" + "\uE007");
+                            browser.params.config.LastStepExecuted = executionSequence;
+                        });
+                    } else {
+                        key.sendKeys(value).then(function () {
+                            browser.params.config.LastStepExecuted = executionSequence;
+                        });
+                    }
                 });
             }
         }
