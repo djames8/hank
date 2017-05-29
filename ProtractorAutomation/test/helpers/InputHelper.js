@@ -863,9 +863,20 @@ var InputHelper = function () {
                         });
                     }
                     else if (tagName == "select") {
-                        key.$('option:checked').getText().then(function (optionText) {
-                            onSuccess(optionText);
-                        });
+                        var locator = key.locator();
+                        if(locator && locator.using == "xpath") {
+                            var script = 'function getSelectedText(args) { var obj = args ? args[0] : undefined; var tagName = "test"; if(obj){ tagName = (obj.tagName+"").toLowerCase(); if(tagName == "select"){ return obj.options[obj.selectedIndex].text; } } return "Invalid operation!" + tagName; }';
+                            script += " return getSelectedText(arguments)";
+                            key.getWebElements().then(function(element){
+                                browser.driver.executeScript(script, element[0]).then(function (data) {
+                                    onSuccess(data);
+                                });
+                            });
+                        } else {
+                            key.$('option:checked').getText().then(function (optionText) {
+                                onSuccess(optionText);
+                            });
+                        }
                     }
                     else if (tagName == "table" && isSetVar) {
                         var tblData = [];
@@ -1111,7 +1122,10 @@ var InputHelper = function () {
                     if (testInstance.Action != actionConstant.LogText) {
                         testInstance.VariableName = '';
 
-                        if ((testInstance.Action == actionConstant.AssertToEqual || testInstance.Action == actionConstant.AssertToEqualIgnoreCase) && testInstance.DisplayName == null) {
+                        if ((testInstance.Action == actionConstant.AssertToEqual
+                            || testInstance.Action == actionConstant.AssertToEqualIgnoreCase
+                            || testInstance.Action == actionConstant.AssertToContain)
+                            && testInstance.DisplayName == null) {
                             testInstance.ToCompareWith = toCompareValue;
                         }
 
@@ -1155,7 +1169,7 @@ var InputHelper = function () {
             }
             else {
                 key.getAttribute("class").then(function(classNames){
-                    if(classNames && classNames.indexOf("ui-autocomplete-input")) {
+                    if(classNames && classNames.indexOf("ui-autocomplete-input") >= 0) {
                         key.sendKeys(value).then(function () {
                             browser.sleep(1000).then(function () {});
                             key.sendKeys("\uE015" + "\uE007");
