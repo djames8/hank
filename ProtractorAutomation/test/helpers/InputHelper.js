@@ -1311,7 +1311,7 @@ var InputHelper = function () {
         }
     };
 
-    this.setDropDown = function selectOption(executionSequence, key, value, selectFirst, milliseconds) {
+    this.setDropDown  = function selectOption(executionSequence, key, value, selectFirst, milliseconds) {
         this.anyTextToBePresentInElement(key, value);
 
         if (selectFirst || (value == undefined || value == '')) {
