@@ -55,7 +55,9 @@ var ActionConstant = function () {
     this.ReadAttribute = 'Read Attribute';
     this.TransformationOn = 'Transformation On';
     this.TransformationOff = 'Transformation Off';
-    this.CloseCurrentTab = 'Close Current Tab'
+    this.CloseCurrentTab = 'Close Current Tab';
+    this.ElementCount = "Element Count";
+    this.ElementChildCount = "Element Child Count";
 };
 
 module.exports = ActionConstant;

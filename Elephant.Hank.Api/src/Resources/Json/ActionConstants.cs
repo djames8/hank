@@ -55,6 +55,28 @@ namespace Elephant.Hank.Resources.Json
         }
 
         /// <summary>
+        /// Gets the element count.
+        /// </summary>
+        public long ElementCount
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["ElementCount"].ToInt64();
+            }
+        }
+
+        /// <summary>
+        /// Gets the element child count.
+        /// </summary>
+        public long ElementChildCount
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["ElementChildCount"].ToInt64();
+            }
+        }
+
+        /// <summary>
         /// Gets the SetVariable Action's Identifier
         /// </summary>
         public long SetVariableManuallyActionId
