@@ -11,86 +11,97 @@ var HashTagHelper = function () {
     var thisobj = this;
     var result;
 
-    this.computeHashTags = function (hashTagText) {
+    this.computeHashTags = function (hashTagText, isOptional) {
         currentCycleDate = undefined;
+        isOptional = isOptional || false;
 
         var defer = protractor.promise.defer();
         var splittedHashTagArray = hashTagText.split('#');
 
-        if(splittedHashTagArray.length < 2) {
-            defer.reject({error: "Hashtag not found!"});
-        }
-        else {
-            var tagNameLowerCase = splittedHashTagArray[1].split('~')[0].toLowerCase();
-            var variables = splittedHashTagArray[1].match(/\{(.*?)\}/g) || [];
-            var variableName = splittedHashTagArray[1].substring(splittedHashTagArray[1].indexOf('{') + 1, splittedHashTagArray[1].lastIndexOf('}'));
+        try {
+            if (splittedHashTagArray.length < 2) {
+                defer.reject({error: "Hashtag not found!"});
+            }
+            else {
+                var tagNameLowerCase = splittedHashTagArray[1].split('~')[0].toLowerCase();
+                var variables = splittedHashTagArray[1].match(/\{(.*?)\}/g) || [];
+                var variableName = splittedHashTagArray[1].substring(splittedHashTagArray[1].indexOf('{') + 1, splittedHashTagArray[1].lastIndexOf('}'));
 
-            if (tagNameLowerCase == 'now' || tagNameLowerCase == 'variable') {
-                for (var i = 1; i < splittedHashTagArray.length; i++) {
-                    var splitedTextValue = splittedHashTagArray[i].split('~');
-                    if (splitedTextValue.length > 1) {
-                        this.computeDate(splitedTextValue[0].toLowerCase(), (splitedTextValue[1] + "").toLowerCase());
+                if (tagNameLowerCase == 'now' || tagNameLowerCase == 'variable') {
+                    for (var i = 1; i < splittedHashTagArray.length; i++) {
+                        var splitedTextValue = splittedHashTagArray[i].split('~');
+                        if (splitedTextValue.length > 1) {
+                            this.computeDate(splitedTextValue[0].toLowerCase(), (splitedTextValue[1] + "").toLowerCase());
+                        }
+                        else {
+                            this.computeDate(splittedHashTagArray[i].toLowerCase());
+                        }
+                    }
+                    defer.fulfill(currentCycleDate);
+                }
+                else if (tagNameLowerCase == 'add' || tagNameLowerCase == 'subtract') {
+                    result = thisobj.ProcessMathematicOperation([jsonHelper.ExtractVariableValue(splittedHashTagArray[1].split('~')[1].replace('{', '').replace('}', '')), jsonHelper.ExtractVariableValue(splittedHashTagArray[1].split('~')[2].replace('{', '').replace('}', ''))], tagNameLowerCase);
+                    defer.fulfill(result);
+                }
+                else if (tagNameLowerCase == 'assign') {
+                    if (variables.length > 0) {
+                        result = jsonHelper.GetIndexedVariableValueFromVariableContainer(variableName);
                     }
                     else {
-                        this.computeDate(splittedHashTagArray[i].toLowerCase());
+                        result = splittedHashTagArray[1].split('~')[1];
                     }
+                    defer.fulfill(result);
                 }
-                defer.fulfill(currentCycleDate);
-            }
-            else if (tagNameLowerCase == 'add' || tagNameLowerCase == 'subtract') {
-                result = thisobj.ProcessMathematicOperation([jsonHelper.ExtractVariableValue(splittedHashTagArray[1].split('~')[1].replace('{', '').replace('}', '')), jsonHelper.ExtractVariableValue(splittedHashTagArray[1].split('~')[2].replace('{', '').replace('}', ''))], tagNameLowerCase);
-                defer.fulfill(result);
-            }
-            else if (tagNameLowerCase == 'assign') {
-                if (variables.length > 0) {
+                else if (tagNameLowerCase == 'substring') {
                     result = jsonHelper.GetIndexedVariableValueFromVariableContainer(variableName);
-                }
-                else {
-                    result = splittedHashTagArray[1].split('~')[1];
-                }
-                defer.fulfill(result);
-            }
-            else if (tagNameLowerCase == 'substring') {
-                result = jsonHelper.GetIndexedVariableValueFromVariableContainer(variableName);
-                var substrIndex = splittedHashTagArray[1].split('~')[2];
-                if (splittedHashTagArray[1].split('~').length == 4) {
-                    var indx = parseInt(splittedHashTagArray[1].split('~')[3]);
-                    if (isNaN(indx)) {
-                        var delimeter = splittedHashTagArray[1].split('~')[3].replace("'", "").replace("'", "");
-                        var delimeterIndx = result.indexOf(delimeter) + 1;
-                        result = eval("result.substr(delimeterIndx).substr(" + substrIndex + ")");
+                    var substrIndex = splittedHashTagArray[1].split('~')[2];
+                    if (splittedHashTagArray[1].split('~').length == 4) {
+                        var indx = parseInt(splittedHashTagArray[1].split('~')[3]);
+                        if (isNaN(indx)) {
+                            var delimeter = splittedHashTagArray[1].split('~')[3].replace("'", "").replace("'", "");
+                            var delimeterIndx = result.indexOf(delimeter) + 1;
+                            result = eval("result.substr(delimeterIndx).substr(" + substrIndex + ")");
+                        }
+                        else {
+                            result = eval("result.substr(" + substrIndex + ")");
+                        }
                     }
                     else {
                         result = eval("result.substr(" + substrIndex + ")");
                     }
+                    defer.fulfill(result);
                 }
-                else {
-                    result = eval("result.substr(" + substrIndex + ")");
+                else if (tagNameLowerCase == 'split') {
+                    result = jsonHelper.GetIndexedVariableValueFromVariableContainer(variableName);
+                    var splitDelimeter = splittedHashTagArray[1].split('~')[2];
+                    var defaultArray = [["Output"]];
+                    var splittedArray = result.split(splitDelimeter);
+                    for (var k = 0; k < splittedArray.length; k++) {
+                        defaultArray.push([splittedArray[k]]);
+                    }
+                    defer.fulfill(JSON.stringify(defaultArray));
                 }
-                defer.fulfill(result);
+                else if (tagNameLowerCase == 'concat') {
+                    var concatenatedValues = '';
+                    for (var varCount = 0; varCount < variables.length; varCount++) {
+                        concatenatedValues += jsonHelper.GetIndexedVariableValueFromVariableContainer(variables[varCount].substring(variables[varCount].indexOf('{') + 1, variables[varCount].lastIndexOf('}')));
+                    }
+                    defer.fulfill(concatenatedValues);
+                }
+                else if (tagNameLowerCase == 'newguid') {
+                    var newGuid = jsonHelper.createGuid();
+                    defer.fulfill(newGuid);
+                } else {
+                    defer.reject({error: tagNameLowerCase + ": Hashtag isn't supported yet!"});
+                }
             }
-            else if (tagNameLowerCase == 'split') {
-                result = jsonHelper.GetIndexedVariableValueFromVariableContainer(variableName);
-                var splitDelimeter = splittedHashTagArray[1].split('~')[2];
-                var defaultArray = [["Output"]];
-                var splittedArray = result.split(splitDelimeter);
-                for (var k = 0; k < splittedArray.length; k++) {
-                    defaultArray.push([splittedArray[k]]);
-                }
-                defer.fulfill(JSON.stringify(defaultArray));
-            }
-            else if (tagNameLowerCase == 'concat') {
-                var concatenatedValues = '';
-                for (var varCount = 0; varCount < variables.length; varCount++) {
-                    concatenatedValues += jsonHelper.GetIndexedVariableValueFromVariableContainer(variables[varCount].substring(variables[varCount].indexOf('{') + 1, variables[varCount].lastIndexOf('}')));
-                }
-                defer.fulfill(concatenatedValues);
-            }
-            else if (tagNameLowerCase == 'newguid') {
-                var newGuid = jsonHelper.createGuid();
-                defer.fulfill(newGuid);
+        }
+        catch(ex){
+            if(isOptional) {
+                defer.fulfill(undefined);
+                console.log("Optional Variable:", ex);
             } else {
-                defer.reject({error: tagNameLowerCase + ": Hashtag isn't supported yet!"});
+                throw ex;
             }
         }
 

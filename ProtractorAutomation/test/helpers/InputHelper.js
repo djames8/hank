@@ -455,14 +455,12 @@ var InputHelper = function () {
                     case actionConstant.SetVariableManually:
                     {
                         if (testInstance.Value.indexOf('#') == -1) {
-
                             this.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, testInstance.Value, testInstance.DisplayName);
-
                         }
                         else {
                             browser.controlFlow().execute(function () {
-                                var response = hashTagHelper.computeHashTags(testInstance.Value).then(function (response) {
-                                    thisobj.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, response.toString(), testInstance.DisplayName);
+                                var response = hashTagHelper.computeHashTags(testInstance.Value, testInstance.IsOptional).then(function (response) {
+                                    thisobj.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, response + "", testInstance.DisplayName);
                                 });
                             });
                         }
