@@ -60,12 +60,12 @@ var CustomAssertHelper = function () {
 
         if ((var1JsonValue.length != var2JsonValue.length || colIndexes1.length != colIndexes2.length) && !isContainOperation) {
             console.log("inside not equal lenght   section");
-            expect("variable1 length").toEqual("variable1 length");
+            expect("Variable '"+ varName1 +"' length").toEqual("Variable '"+ varName2 +"' length");
             return false;
         }
         else if (colIndexes1.length != colIndexes2.length) {
             console.log("inside not equal  colum section");
-            expect("variable1 comparisions column").toEqual("variable2 comparisions column");
+            expect("Variable1 '"+ varName1 +"' comparisions column").toEqual("Variable2 '"+ varName2 +"' comparisions column");
             return false;
         }
         else {
@@ -78,11 +78,11 @@ var CustomAssertHelper = function () {
                 return true;
             }
             else if (!forwardTrace) {
-                expect("First Variable").toEqual("Second Variable");
+                expect("First Variable: " + varName1).toEqual("Second Variable: " + varName2);
                 return false
             }
             else if (!backwardTrace) {
-                expect("Second Variable").toEqual("First Variable");
+                expect("Second Variable: " + varName2).toEqual("First Variable: " + varName1);
                 return false
             }
         }
@@ -98,8 +98,8 @@ var CustomAssertHelper = function () {
                 for (var k = 0; k < array1ColIndex.length; k++) {
                     var a = array1[i][array1ColIndex[k].indx];
                     var b = array2[j][array2ColIndex[k].indx];
-                    a = !!transformation.getTransformation(a) ? transformation.getTransformation(a) : a;
-                    b = !!transformation.getTransformation(b) ? transformation.getTransformation(b) : b;
+                    a = transformation.getTransformation(a);
+                    b = transformation.getTransformation(b);
                     if (a == b) {
                         isValueExist = true;
                     }

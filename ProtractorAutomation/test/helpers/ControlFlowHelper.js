@@ -17,7 +17,7 @@ var ControlFlowHelper = function () {
             for (var j = 0; j < variableInLocatorIdentifierList.length; j++) {
                 var variableValue = jsonHelper.GetIndexedVariableValueFromVariableContainer(variableInLocatorIdentifierList[j].replace('{', '').replace('}', ''));
                 console.log("variableValue= " + variableValue);
-                variableValue = !!transformation.getTransformation(variableValue) ? transformation.getTransformation(variableValue) : variableValue;
+                variableValue = transformation.getTransformation(variableValue);
                 testData.LocatorIdentifier = testData.LocatorIdentifier.replace(variableInLocatorIdentifierList[j], variableValue);
                 console.log("new LocatorIdentifier = " + testData.LocatorIdentifier);
             }

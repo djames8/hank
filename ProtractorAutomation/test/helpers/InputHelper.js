@@ -1212,8 +1212,8 @@ var InputHelper = function () {
                 targetVal = targetVal.toUpperCase();
             }
 
-            expectedVal = transformation.getTransformation(expectedVal) || expectedVal;
-            targetVal = transformation.getTransformation(targetVal) || targetVal;
+            expectedVal = transformation.getTransformation(expectedVal);
+            targetVal = transformation.getTransformation(targetVal);
 
             expect(targetVal).not.toEqual(expectedVal);
 
@@ -1255,8 +1255,8 @@ var InputHelper = function () {
                     targetVal = targetVal.toUpperCase();
                 }
 
-                expectedVal = transformation.getTransformation(expectedVal) || expectedVal;
-                targetVal = transformation.getTransformation(targetVal) || targetVal;
+                expectedVal = transformation.getTransformation(expectedVal);
+                targetVal = transformation.getTransformation(targetVal);
 
                 expect(targetVal).toEqual(expectedVal);
                 browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
@@ -1290,8 +1290,8 @@ var InputHelper = function () {
                     targetVal = targetVal.toUpperCase();
                 }
 
-                expectedVal = transformation.getTransformation(expectedVal) || expectedVal;
-                targetVal = transformation.getTransformation(targetVal) || targetVal;
+                expectedVal = transformation.getTransformation(expectedVal);
+                targetVal = transformation.getTransformation(targetVal);
 
                 expect(targetVal).toContain(expectedVal);
                 browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
@@ -1308,8 +1308,8 @@ var InputHelper = function () {
             var expectedVal = item.length + "";
             var targetVal = value;
 
-            expectedVal = transformation.getTransformation(expectedVal) || expectedVal;
-            targetVal = transformation.getTransformation(targetVal) || targetVal;
+            expectedVal = transformation.getTransformation(expectedVal);
+            targetVal = transformation.getTransformation(targetVal);
 
             expect(targetVal).toEqual(expectedVal);
             browser.params.config.LastStepExecuted = executionSequence;
@@ -1330,8 +1330,8 @@ var InputHelper = function () {
                 _value = _value.toUpperCase()
             }
 
-            _value = transformation.getTransformation(_value) || _value;
-            textVal = transformation.getTransformation(textVal) || textVal;
+            _value = transformation.getTransformation(_value);
+            textVal = transformation.getTransformation(textVal);
 
             if (operationType == 1) { // To Equals
                 expect(_value).toEqual(textVal);

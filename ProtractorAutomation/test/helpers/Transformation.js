@@ -27,10 +27,8 @@ var Transformation = function () {
     };
 
     this.getTransformation = function (value) {
-        var response;
+        var response = value;
         var gotValue = false;
-        console.log("Inside getTransformation transFormationCategories= ");
-        console.log(transFormationCategories);
         for (var i = 0; i < transFormationCategories.length; i++) {
             for (var j = 0; j < transFormationCategories[i].Transformation.length; j++) {
                 if (transFormationCategories[i].Transformation[j].Value + "" == value + '') {
@@ -43,6 +41,9 @@ var Transformation = function () {
                 break;
             }
         }
+
+        console.log("Inside getTransformation From: " + value + " To:" + response + " IsMatch:" + gotValue);
+
         return response;
     };
 
