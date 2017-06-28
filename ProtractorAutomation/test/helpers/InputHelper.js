@@ -890,7 +890,7 @@ var InputHelper = function () {
                             onSuccess(JSON.stringify(tblData), tblData);
                         });
                     }
-                    else if (tagName == "div" && !!isHankDataTable && isSetVar) {
+                    else if (tagName == "div" &&  isHankDataTable == 'true' && isSetVar) {
                         var tblData = [];
                         var tr_count = 1;
                         key.all(by.css('.hank-tr')).each(function (trEle, trInd) {
