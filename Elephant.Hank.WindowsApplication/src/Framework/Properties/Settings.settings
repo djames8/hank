@@ -6,7 +6,7 @@
       <Value Profile="(Default)">10000</Value>
     </Setting>
     <Setting Name="FaultedEmailId" Type="System.String" Scope="User">
-      <Value Profile="(Default)">gurpreet.singh@inspopindia.com</Value>
+      <Value Profile="(Default)">gurpreet.singh@elephant.com</Value>
     </Setting>
     <Setting Name="ClearLogHours" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">168</Value>

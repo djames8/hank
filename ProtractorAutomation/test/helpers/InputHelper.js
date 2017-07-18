@@ -779,10 +779,23 @@ var InputHelper = function () {
                     {
                         var script = 'function getCountChild(args){ var obj = args ? args[0] : undefined; var tagName = (args ? args[1] + "" : "").toLowerCase(); if(obj && obj.childNodes){ var count = 0; for(var i = 0; i < obj.childNodes.length; i++){ count += (tagName == "" || (obj.childNodes[i].tagName+"").toLowerCase() == tagName ? 1 : 0); } return count; } return 0; }';
                         script += " return getCountChild(arguments)";
-                        browser.driver.executeScript(script, key.getWebElement(), testInstance.Value).then(function (data) {
-                            thisobj.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, data + "", testInstance.DisplayName);
-                            browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
-                        });
+
+                        var locator = key.locator();
+
+                        if(locator && locator.using == "xpath") {
+                            key.getWebElements().then(function(element){
+                                browser.driver.executeScript(script, element[0], testInstance.Value).then(function (data) {
+                                    thisobj.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, data + "", testInstance.DisplayName);
+                                    browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
+                                });
+                            });
+                        }
+                        else {
+                            browser.driver.executeScript(script, key.getWebElement(), testInstance.Value).then(function (data) {
+                                thisobj.setVariable(testInstance.ExecutionSequence, testInstance.VariableName, data + "", testInstance.DisplayName);
+                                browser.params.config.LastStepExecuted = testInstance.ExecutionSequence;
+                            });
+                        }
                         break;
                     }
                 }

@@ -20,51 +20,6 @@
             The HashTagDescriptionController class
             </summary>
         </member>
-        <member name="T:Elephant.Hank.Api.Controllers.BaseApiController">
-            <summary>
-            The base api controller.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Controllers.BaseApiController.userId">
-            <summary>
-            The user identifier
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Controllers.BaseApiController.isAdminUser">
-            <summary>
-            The is admin user
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Controllers.BaseApiController.#ctor(Elephant.Hank.Common.LogService.ILoggerService)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.BaseApiController"/> class.
-            </summary>
-            <param name="loggerService">The logger service.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Controllers.BaseApiController.ModelStateToMessage">
-            <summary>
-            Models the state to message.
-            </summary>
-            <returns>Message list</returns>
-        </member>
-        <member name="P:Elephant.Hank.Api.Controllers.BaseApiController.UserId">
-            <summary>
-            Gets the user identifier.
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.Controllers.BaseApiController.IsAdminUser">
-            <summary>
-            Gets a value indicating whether this instance is admin user.
-            </summary>
-            <value>
-            <c>true</c> if this instance is admin user; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Elephant.Hank.Api.Controllers.BaseApiController.LoggerService">
-            <summary>
-            Gets the logger service.
-            </summary>
-        </member>
         <member name="F:Elephant.Hank.Api.Controllers.HashTagDescriptionController.hashTagDescriptionService">
             <summary>
             The hash tag description service
@@ -131,7 +86,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.ApiTestModule.ApiCategoriesController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.IApiCategoriesService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.ApiTestModule.ApiCategoriesController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.ApiTestModule.ApiCategoriesController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="apiCategoriesService">The API categories service.</param>
@@ -189,7 +144,7 @@
             <summary>
             The ApiConnectionController class
             </summary>
-            <seealso cref="T:Elephant.Hank.Api.Controllers.BaseApiController"/>
+            <seealso cref="T:Elephant.Hank.Api.Controllers.BaseApiController" />
         </member>
         <member name="F:Elephant.Hank.Api.Controllers.ApiTestModule.ApiConnectionController.apiConnectionService">
             <summary>
@@ -198,7 +153,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.ApiTestModule.ApiConnectionController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.IApiConnectionService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.ApiTestModule.ApiConnectionController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.ApiTestModule.ApiConnectionController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="apiConnectionService">The API connection service.</param>
@@ -270,7 +225,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.ReportLinkDataController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.IReportLinkDataService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.ReportLinkDataController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.ReportLinkDataController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="reportLinkDataService">The report link data service.</param>
@@ -586,1114 +541,6 @@
             <param name="transformationDto">The transformation dto.</param>
             <returns>
             Newly added object
-            </returns>
-        </member>
-        <member name="T:Elephant.Hank.Api.Security.CustomAuthorizeAttribute">
-            <summary>
-            The CustomAuthorizeAttribute class
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Security.CustomAuthorizeAttribute.IsAuthorized(System.Web.Http.Controllers.HttpActionContext)">
-            <summary>
-            calls while authorizing the user
-            </summary>
-            <param name="filterContext">The filter context</param>
-            <returns>returns the Authorization status</returns>
-        </member>
-        <member name="P:Elephant.Hank.Api.Security.CustomAuthorizeAttribute.ModuleType">
-            <summary>
-            Gets or sets the module name
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.Security.CustomAuthorizeAttribute.ActionType">
-            <summary>
-            Gets or sets the module name
-            </summary>
-        </member>
-        <member name="T:Elephant.Hank.Api.FilterConfig">
-            <summary>
-            The FilterConfig class
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
-            <summary>
-            Registers the global filters.
-            </summary>
-            <param name="filters">The filters.</param>
-        </member>
-        <member name="T:Elephant.Hank.Api.RouteConfig">
-            <summary>
-            The RouteConfig class
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
-            <summary>
-            Registers the routes.
-            </summary>
-            <param name="routes">The routes.</param>
-        </member>
-        <member name="T:Elephant.Hank.Api.StructuremapMvc">
-            <summary>
-            The StructuremapMvc class
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.StructuremapMvc.End">
-            <summary>
-            Ends this instance.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.StructuremapMvc.Start">
-            <summary>
-            Starts this instance.
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.StructuremapMvc.StructureMapDependencyScope">
-            <summary>
-            Gets or sets the structure map dependency scope.
-            </summary>
-            <value>
-            The structure map dependency scope.
-            </value>
-        </member>
-        <member name="T:Elephant.Hank.Api.StructuremapWebApi">
-            <summary>
-            The StructuremapWebApi class
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.StructuremapWebApi.Start">
-            <summary>
-            The start.
-            </summary>
-        </member>
-        <member name="T:Elephant.Hank.Api.WebApiConfig">
-            <summary>
-            The WebApiConfig class
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
-            <summary>
-            Registers the specified configuration.
-            </summary>
-            <param name="config">The configuration.</param>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.ApiDescriptionExtensions">
-            <summary>
-            The ApiDescriptionExtensions class
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
-            <summary>
-            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
-            </summary>
-            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
-            <returns>The ID as a string.</returns>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.App_Start.HelpPageConfig">
-            <summary>
-            Use this class to customize the Help Page.
-            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the
-            documentation
-            or you can provide the samples for the requests/responses.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.App_Start.HelpPageConfig.Register(System.Web.Http.HttpConfiguration)">
-            <summary>
-            Registers the specified configuration.
-            </summary>
-            <param name="config">The configuration.</param>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController">
-            <summary>
-            The controller that will handle requests for the help page.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController"/> class.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.#ctor(System.Web.Http.HttpConfiguration)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController"/> class.
-            </summary>
-            <param name="config">The configuration.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.Index">
-            <summary>
-            The index.
-            </summary>
-            <returns>
-            The <see cref="T:System.Web.Mvc.ActionResult"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.Api(System.String)">
-            <summary>
-            APIs the specified API identifier.
-            </summary>
-            <param name="apiId">The API identifier.</param>
-            <returns>
-            The <see cref="T:System.Web.Mvc.ActionResult"/>.
-            </returns>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.Configuration">
-            <summary>
-            Gets the configuration.
-            </summary>
-            <value>
-            The configuration.
-            </value>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.HelpPageAreaRegistration">
-            <summary>
-            The help page area registration.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageAreaRegistration.RegisterArea(System.Web.Mvc.AreaRegistrationContext)">
-            <summary>
-            The register area.
-            </summary>
-            <param name="context">The context.</param>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.HelpPageAreaRegistration.AreaName">
-            <summary>
-            Gets the area name.
-            </summary>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions">
-            <summary>
-            The help page configuration extensions.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.ApiModelPrefix">
-            <summary>
-            The api model prefix.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
-            <summary>
-            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and
-            cached for subsequent calls.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
-            <returns>
-            An <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel"/>
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
-            <summary>
-            Gets the help page sample generator.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <returns>
-            The help page sample generator.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
-            <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the
-            <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
-            The help page will use this information to produce more accurate request samples.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="type">The type.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
-            <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the
-            <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
-            The help page will use this information to produce more accurate request samples.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="type">The type.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-            <param name="parameterNames">The parameter names.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
-            <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the
-            <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
-            The help page will use this information to produce more accurate response samples.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="type">The type.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
-            <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the
-            <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
-            The help page will use this information to produce more accurate response samples.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="type">The type.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-            <param name="parameterNames">The parameter names.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
-            <summary>
-            Sets the documentation provider for help page.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="documentationProvider">The documentation provider.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator)">
-            <summary>
-            Sets the help page sample generator.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="sampleGenerator">The help page sample generator.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
-            <summary>
-            Sets the sample directly for all actions with the specified type and media type.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="sample">The sample.</param>
-            <param name="mediaType">The media type.</param>
-            <param name="type">The parameter type or return type of an action.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
-            <summary>
-            Sets the objects that will be used by the formatters to produce sample requests/responses.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="sampleObjects">The sample objects.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
-            <summary>
-            Sets the sample request directly for the specified media type and action.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="sample">The sample request.</param>
-            <param name="mediaType">The media type.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
-            <summary>
-            Sets the sample request directly for the specified media type and action with parameters.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="sample">The sample request.</param>
-            <param name="mediaType">The media type.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-            <param name="parameterNames">The parameter names.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
-            <summary>
-            Sets the sample request directly for the specified media type of the action.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="sample">The sample response.</param>
-            <param name="mediaType">The media type.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
-            <summary>
-            Sets the sample response directly for the specified media type of the action with specific parameters.
-            </summary>
-            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
-            <param name="sample">The sample response.</param>
-            <param name="mediaType">The media type.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-            <param name="parameterNames">The parameter names.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GenerateApiModel(System.Web.Http.Description.ApiDescription,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator)">
-            <summary>
-            The generate api model.
-            </summary>
-            <param name="apiDescription">The api description.</param>
-            <param name="sampleGenerator">The sample generator.</param>
-            <returns>
-            The <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.LogInvalidSampleAsError(Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel,System.Object)">
-            <summary>
-            The log invalid sample as error.
-            </summary>
-            <param name="apiModel">The api model.</param>
-            <param name="sample">The sample.</param>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel">
-            <summary>
-            The model that represents an API displayed on the help page.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel"/> class.
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
-            <summary>
-            Gets or sets the <see cref="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
-            <summary>
-            Gets the sample requests associated with the API.
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
-            <summary>
-            Gets the sample responses associated with the API.
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
-            <summary>
-            Gets the error messages associated with this model.
-            </summary>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator">
-            <summary>
-                This class will generate the samples for the help page.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator"/> class.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection)">
-            <summary>
-            Search for samples that are provided directly through <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.ActionSamples"/>.
-            </summary>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-            <param name="parameterNames">The parameter names.</param>
-            <param name="type">The CLR type.</param>
-            <param name="formatter">The formatter.</param>
-            <param name="mediaType">The media type.</param>
-            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
-            <returns>
-            The sample that matches the parameters.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection)">
-            <summary>
-            Gets the request or response body samples.
-            </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
-            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
-            <returns>
-            The samples keyed by media type.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetSampleObject(System.Type)">
-            <summary>
-            Gets the sample object that will be serialized by the formatters.
-            First, it will look at the <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create one
-            using <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator"/>.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>
-            The sample object.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
-            <summary>
-            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
-            </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
-            <returns>
-            The samples keyed by media type.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
-            <summary>
-            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
-            </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
-            <returns>
-            The samples keyed by media type.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
-            <summary>
-            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or
-            <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
-            </summary>
-            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-            <param name="parameterNames">The parameter names.</param>
-            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
-            <param name="formatters">The formatters.</param>
-            <returns>
-            The <see cref="T:System.Type"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
-            <summary>
-            Writes the sample object using formatter.
-            </summary>
-            <param name="formatter">The formatter.</param>
-            <param name="value">The value.</param>
-            <param name="type">The type.</param>
-            <param name="mediaType">Type of the media.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-            <exception cref="T:System.ArgumentNullException">
-            formatter
-            or
-            mediaType
-            </exception>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.IsFormatSupported(Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection,System.Net.Http.Formatting.MediaTypeFormatter,System.Type)">
-            <summary>
-            The is format supported.
-            </summary>
-            <param name="sampleDirection">The sample direction.</param>
-            <param name="formatter">The formatter.</param>
-            <param name="type">The type.</param>
-            <returns>
-            The <see cref="T:System.Boolean"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.TryFormatJson(System.String)">
-            <summary>
-            The try format json.
-            </summary>
-            <param name="str">The str.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.TryFormatXml(System.String)">
-            <summary>
-            The try format xml.
-            </summary>
-            <param name="str">The str.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.WrapSampleIfString(System.Object)">
-            <summary>
-            The wrap sample if string.
-            </summary>
-            <param name="sample">The sample.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetAllActionSamples(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection)">
-            <summary>
-            The get all action samples.
-            </summary>
-            <param name="controllerName">The controller name.</param>
-            <param name="actionName">The action name.</param>
-            <param name="parameterNames">The parameter names.</param>
-            <param name="sampleDirection">The sample direction.</param>
-            <returns>
-            The <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey"/>.
-            </returns>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.ActionSamples">
-            <summary>
-            Gets the objects that are used directly as samples for certain actions.
-            </summary>
-            <value>
-            The action samples.
-            </value>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.ActualHttpMessageTypes">
-            <summary>
-            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or
-            <see cref="T:System.Net.Http.HttpResponseMessage"/>.
-            </summary>
-            <value>
-            The actual HTTP message types.
-            </value>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.SampleObjects">
-            <summary>
-            Gets the objects that are serialized as samples by the supported formatters.
-            </summary>
-            <value>
-            The sample objects.
-            </value>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey">
-            <summary>
-            This is used to identify the place where the sample should be applied.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey"/> class.
-            Creates a new <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey"/> based on media type and CLR type.
-            </summary>
-            <param name="mediaType">The media type.</param>
-            <param name="type">The CLR type.</param>
-            <exception cref="T:System.ArgumentNullException">
-            mediaType
-            or
-            type
-            </exception>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.#ctor(Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey"/> class.
-            Creates a new <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey"/> based on <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
-            </summary>
-            <param name="sampleDirection">The <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection"/>.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-            <param name="parameterNames">The parameter names.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey"/> class.
-            Creates a new <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey"/> based on media type, <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
-            </summary>
-            <param name="mediaType">The media type.</param>
-            <param name="sampleDirection">The <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection"/>.</param>
-            <param name="controllerName">Name of the controller.</param>
-            <param name="actionName">Name of the action.</param>
-            <param name="parameterNames">The parameter names.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.Equals(System.Object)">
-            <summary>
-            The equals.
-            </summary>
-            <param name="obj">The obj.</param>
-            <returns>
-            The <see cref="T:System.Boolean"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.GetHashCode">
-            <summary>
-            The get hash code.
-            </summary>
-            <returns>
-            The <see cref="T:System.Int32"/>.
-            </returns>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.ControllerName">
-            <summary>
-            Gets the name of the controller.
-            </summary>
-            <value>
-            The name of the controller.
-            </value>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.ActionName">
-            <summary>
-            Gets the name of the action.
-            </summary>
-            <value>
-            The name of the action.
-            </value>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.MediaType">
-            <summary>
-            Gets the media type.
-            </summary>
-            <value>
-            The media type.
-            </value>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.ParameterNames">
-            <summary>
-            Gets the parameter names.
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.ParameterType">
-            <summary>
-            Gets the parameter type.
-            </summary>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection">
-            <summary>
-            Gets the <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection"/>.
-            </summary>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample">
-            <summary>
-            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample"/> class.
-            </summary>
-            <param name="src">The URL of an image.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
-            </summary>
-            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
-            <returns>
-              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.GetHashCode">
-            <summary>
-            Returns a hash code for this instance.
-            </summary>
-            <returns>
-            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.ToString">
-            <summary>
-            Returns a <see cref="T:System.String"/> that represents this instance.
-            </summary>
-            <returns>
-            A <see cref="T:System.String"/> that represents this instance.
-            </returns>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.Src">
-            <summary>
-            Gets the source.
-            </summary>
-            <value>
-            The source.
-            </value>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample">
-            <summary>
-            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample"/> class.
-            </summary>
-            <param name="errorMessage">The error message.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
-            </summary>
-            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
-            <returns>
-              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.GetHashCode">
-            <summary>
-            Returns a hash code for this instance.
-            </summary>
-            <returns>
-            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.ToString">
-            <summary>
-            Returns a <see cref="T:System.String"/> that represents this instance.
-            </summary>
-            <returns>
-            A <see cref="T:System.String"/> that represents this instance.
-            </returns>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.ErrorMessage">
-            <summary>
-            Gets the error message.
-            </summary>
-            <value>
-            The error message.
-            </value>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator">
-            <summary>
-                This class will create an object of a given type and populate it with sample data.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.DefaultCollectionSize">
-            <summary>
-            The default collection size.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.simpleObjectGenerator">
-            <summary>
-            The simple object generator.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateObject(System.Type)">
-            <summary>
-            Generates an object for a given type. The type needs to be public, have a public default constructor and settable
-            public properties/fields. Currently it supports the following types:
-            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>,
-            <see cref="T:System.Uri"/>, etc.
-            Complex types: POCO types.
-            Nullables: <see cref="T:System.Nullable`1"/>.
-            Arrays: arrays of simple types or complex types.
-            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
-            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
-            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from
-            <see cref="T:System.Collections.Generic.IDictionary`2"/>.
-            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>,
-            <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from
-            <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
-            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>
-            An object of the given type.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateArray(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate array.
-            </summary>
-            <param name="arrayType">The array type.</param>
-            <param name="size">The size.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateCollection(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate collection.
-            </summary>
-            <param name="collectionType">The collection type.</param>
-            <param name="size">The size.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateComplexObject(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate complex object.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateDictionary(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate dictionary.
-            </summary>
-            <param name="dictionaryType">The dictionary type.</param>
-            <param name="size">The size.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateEnum(System.Type)">
-            <summary>
-            The generate enum.
-            </summary>
-            <param name="enumType">The enum type.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateGenericType(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate generic type.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="collectionSize">The collection size.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateKeyValuePair(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate key value pair.
-            </summary>
-            <param name="keyValuePairType">The key value pair type.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateNullable(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate nullable.
-            </summary>
-            <param name="nullableType">The nullable type.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateQueryable(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate queryable.
-            </summary>
-            <param name="queryableType">The queryable type.</param>
-            <param name="size">The size.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateTuple(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate tuple.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.IsTuple(System.Type)">
-            <summary>
-            The is tuple.
-            </summary>
-            <param name="genericTypeDefinition">The generic type definition.</param>
-            <returns>
-            The <see cref="T:System.Boolean"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SetPublicFields(System.Type,System.Object,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The set public fields.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="obj">The obj.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SetPublicProperties(System.Type,System.Object,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The set public properties.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="obj">The obj.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateObject(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
-            <summary>
-            The generate object.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="createdObjectReferences">The created object references.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator">
-            <summary>
-            The simple type object generator.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.DefaultGenerators">
-            <summary>
-            The default generators.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.index">
-            <summary>
-                The index.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.CanGenerateObject(System.Type)">
-            <summary>
-            The can generate object.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>
-            The <see cref="T:System.Boolean"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.GenerateObject(System.Type)">
-            <summary>
-            The generate object.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>
-            The <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.InitializeGenerators">
-            <summary>
-            The initialize generators.
-            </summary>
-            <returns>
-            The
-            <see><cref>Dictionary</cref></see>.
-            </returns>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection">
-            <summary>
-            Indicates whether the sample is used for request or response
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection.Request">
-            <summary>
-            The request
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection.Response">
-            <summary>
-            The response
-            </summary>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample">
-            <summary>
-            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample"/> class.
-            </summary>
-            <param name="text">The text.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.Equals(System.Object)">
-            <summary>
-            The equals.
-            </summary>
-            <param name="obj">The obj.</param>
-            <returns>
-            The <see cref="T:System.Boolean"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.GetHashCode">
-            <summary>
-            The get hash code.
-            </summary>
-            <returns>
-            The <see cref="T:System.Int32"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.ToString">
-            <summary>
-            The to string.
-            </summary>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.Text">
-            <summary>
-            Gets the text.
-            </summary>
-        </member>
-        <member name="T:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider">
-            <summary>
-            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.MethodExpression">
-            <summary>
-            The method expression.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.ParameterExpression">
-            <summary>
-            The parameter expression.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.TypeExpression">
-            <summary>
-            The type expression.
-            </summary>
-        </member>
-        <member name="F:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.documentNavigator">
-            <summary>
-            The document navigator.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider"/> class.
-            </summary>
-            <param name="documentPath">The physical path to XML document.</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpControllerDescriptor)">
-            <summary>
-            The get documentation.
-            </summary>
-            <param name="controllerDescriptor">The controller descriptor.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)">
-            <summary>
-            The get documentation.
-            </summary>
-            <param name="actionDescriptor">The action descriptor.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpParameterDescriptor)">
-            <summary>
-            The get documentation.
-            </summary>
-            <param name="parameterDescriptor">The parameter descriptor.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetResponseDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)">
-            <summary>
-            The get response documentation.
-            </summary>
-            <param name="actionDescriptor">The action descriptor.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetMemberName(System.Reflection.MethodInfo)">
-            <summary>
-            The get member name.
-            </summary>
-            <param name="method">The method.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetTagValue(System.Xml.XPath.XPathNavigator,System.String)">
-            <summary>
-            The get tag value.
-            </summary>
-            <param name="parentNode">The parent node.</param>
-            <param name="tagName">The tag name.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetTypeName(System.Type)">
-            <summary>
-            The get type name.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>
-            The <see cref="T:System.String"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetMethodNode(System.Web.Http.Controllers.HttpActionDescriptor)">
-            <summary>
-            The get method node.
-            </summary>
-            <param name="actionDescriptor">The action descriptor.</param>
-            <returns>
-            The <see cref="T:System.Xml.XPath.XPathNavigator"/>.
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetTypeNode(System.Web.Http.Controllers.HttpControllerDescriptor)">
-            <summary>
-            The get type node.
-            </summary>
-            <param name="controllerDescriptor">The controller descriptor.</param>
-            <returns>
-            The <see cref="T:System.Xml.XPath.XPathNavigator"/>.
             </returns>
         </member>
         <member name="T:Elephant.Hank.Api.Controllers.ActionController">
@@ -2034,7 +881,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.EnvironmentController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.IEnvironmentService,Elephant.Hank.Common.CustomValidationService.IValidationService{Elephant.Hank.Resources.Dto.TblEnvironmentDto})">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.EnvironmentController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.EnvironmentController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="environmentService">The environment service.</param>
@@ -2300,7 +1147,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.PagesController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.IPagesService,Elephant.Hank.Common.TestDataServices.ILocatorIdentifierService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.PagesController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.PagesController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="pagesService">The pages service.</param>
@@ -2687,7 +1534,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.ReportsController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.IReportDataService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.ReportsController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.ReportsController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="reportDataService">The report data service.</param>
@@ -2792,7 +1639,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.AccountController.#ctor(Elephant.Hank.Common.DataService.IAuthRepository,Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.IGroupModuleAccessService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.AccountController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.AccountController" /> class.
             </summary>
             <param name="authRepository">The authentication repository.</param>
             <param name="loggerService">The logger service.</param>
@@ -2821,7 +1668,7 @@
             </summary>
             <param name="activationId">The activation id.</param>
             <returns>
-            The <see cref="T:System.Threading.Tasks.Task"/>.
+            The <see cref="T:System.Threading.Tasks.Task" />.
             </returns>
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.AccountController.Register(Elephant.Hank.Resources.Models.UserModel)">
@@ -2859,6 +1706,51 @@
             Releases the unmanaged resources that are used by the object and, optionally, releases the managed resources.
             </summary>
             <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="T:Elephant.Hank.Api.Controllers.BaseApiController">
+            <summary>
+            The base api controller.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Controllers.BaseApiController.userId">
+            <summary>
+            The user identifier
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Controllers.BaseApiController.isAdminUser">
+            <summary>
+            The is admin user
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.BaseApiController.#ctor(Elephant.Hank.Common.LogService.ILoggerService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.BaseApiController" /> class.
+            </summary>
+            <param name="loggerService">The logger service.</param>
+        </member>
+        <member name="P:Elephant.Hank.Api.Controllers.BaseApiController.UserId">
+            <summary>
+            Gets the user identifier.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Controllers.BaseApiController.IsAdminUser">
+            <summary>
+            Gets a value indicating whether this instance is admin user.
+            </summary>
+            <value>
+            <c>true</c> if this instance is admin user; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Elephant.Hank.Api.Controllers.BaseApiController.LoggerService">
+            <summary>
+            Gets the logger service.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Controllers.BaseApiController.ModelStateToMessage">
+            <summary>
+            Models the state to message.
+            </summary>
+            <returns>Message list</returns>
         </member>
         <member name="T:Elephant.Hank.Api.Controllers.HomeController">
             <summary>
@@ -2900,7 +1792,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.SchedulerController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.ISchedulerService,Elephant.Hank.Common.TestDataServices.ISchedulerSuiteMapService,Elephant.Hank.Common.TestDataServices.ISchedulerHistoryService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.SchedulerController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.SchedulerController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="schedulerService">The scheduler service.</param>
@@ -3391,7 +2283,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.TestCategoryController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.ITestCategoryService,Elephant.Hank.Common.TestDataServices.ITestService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.TestCategoryController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.TestCategoryController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="testCategoryService">The test category service.</param>
@@ -3769,7 +2661,7 @@
         </member>
         <member name="M:Elephant.Hank.Api.Controllers.WebsiteController.#ctor(Elephant.Hank.Common.LogService.ILoggerService,Elephant.Hank.Common.TestDataServices.IWebsiteService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.WebsiteController"/> class.
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Controllers.WebsiteController" /> class.
             </summary>
             <param name="loggerService">The logger service.</param>
             <param name="websiteService">The website service.</param>
@@ -3829,6 +2721,1143 @@
             Newly added object
             </returns>
         </member>
+        <member name="T:Elephant.Hank.Api.Security.CustomAuthorizeAttribute">
+            <summary>
+            The CustomAuthorizeAttribute class
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Security.CustomAuthorizeAttribute.ModuleType">
+            <summary>
+            Gets or sets the module name
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Security.CustomAuthorizeAttribute.ActionType">
+            <summary>
+            Gets or sets the module name
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Security.CustomAuthorizeAttribute.IsAuthorized(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            calls while authorizing the user
+            </summary>
+            <param name="filterContext">The filter context</param>
+            <returns>returns the Authorization status</returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Security.AuthorizationMiddleware">
+            <summary>
+            The AuthorizationMiddleware class
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Security.AuthorizationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Security.AuthorizationMiddleware" /> class.
+            </summary>
+            <param name="next">next pointer</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Security.AuthorizationMiddleware.Invoke(Microsoft.Owin.IOwinContext)">
+            <summary>
+            Process an individual request.
+            </summary>
+            <param name="context">request context</param>
+            <returns>
+            response context
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Security.AuthorizationMiddleware.ProcessAuthLoading(Microsoft.Owin.IOwinContext)">
+            <summary>
+            Processes the authentication loading.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>
+            Task promise
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.FilterConfig">
+            <summary>
+            The FilterConfig class
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
+            <summary>
+            Registers the global filters.
+            </summary>
+            <param name="filters">The filters.</param>
+        </member>
+        <member name="T:Elephant.Hank.Api.RouteConfig">
+            <summary>
+            The RouteConfig class
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
+            <summary>
+            Registers the routes.
+            </summary>
+            <param name="routes">The routes.</param>
+        </member>
+        <member name="T:Elephant.Hank.Api.StructuremapMvc">
+            <summary>
+            The StructuremapMvc class
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.StructuremapMvc.StructureMapDependencyScope">
+            <summary>
+            Gets or sets the structure map dependency scope.
+            </summary>
+            <value>
+            The structure map dependency scope.
+            </value>
+        </member>
+        <member name="M:Elephant.Hank.Api.StructuremapMvc.End">
+            <summary>
+            Ends this instance.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.StructuremapMvc.Start">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="T:Elephant.Hank.Api.StructuremapWebApi">
+            <summary>
+            The StructuremapWebApi class
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.StructuremapWebApi.Start">
+            <summary>
+            The start.
+            </summary>
+        </member>
+        <member name="T:Elephant.Hank.Api.WebApiConfig">
+            <summary>
+            The WebApiConfig class
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registers the specified configuration.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.ApiDescriptionExtensions">
+            <summary>
+            The ApiDescriptionExtensions class
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.App_Start.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider" /> to supply the
+            documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.App_Start.HelpPageConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registers the specified configuration.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController"/> class.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.#ctor(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController"/> class.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.Index">
+            <summary>
+            The index.
+            </summary>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Controllers.HelpController.Api(System.String)">
+            <summary>
+            APIs the specified API identifier.
+            </summary>
+            <param name="apiId">The API identifier.</param>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult" />.
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.HelpPageAreaRegistration">
+            <summary>
+            The help page area registration.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.HelpPageAreaRegistration.AreaName">
+            <summary>
+            Gets the area name.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageAreaRegistration.RegisterArea(System.Web.Mvc.AreaRegistrationContext)">
+            <summary>
+            The register area.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions">
+            <summary>
+            The help page configuration extensions.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.ApiModelPrefix">
+            <summary>
+            The api model prefix.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and
+            cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription" /> ID.</param>
+            <returns>
+            An <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel" />
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <returns>
+            The help page sample generator.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> passed to the
+            <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> passed to the
+            <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> returned as part of the
+            <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1" /> returned as part of the
+            <see cref="T:System.Net.Http.HttpRequestMessage" /> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration" />.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GenerateApiModel(System.Web.Http.Description.ApiDescription,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator)">
+            <summary>
+            The generate api model.
+            </summary>
+            <param name="apiDescription">The api description.</param>
+            <param name="sampleGenerator">The sample generator.</param>
+            <returns>
+            The <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.HelpPageConfigurationExtensions.LogInvalidSampleAsError(Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel,System.Object)">
+            <summary>
+            The log invalid sample as error.
+            </summary>
+            <param name="apiModel">The api model.</param>
+            <param name="sample">The sample.</param>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator">
+            <summary>
+                This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator" /> class.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+            <value>
+            The action samples.
+            </value>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage" /> or
+            <see cref="T:System.Net.Http.HttpResponseMessage" />.
+            </summary>
+            <value>
+            The actual HTTP message types.
+            </value>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+            <value>
+            The sample objects.
+            </value>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.ActionSamples" />.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>
+            The sample that matches the parameters.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>
+            The samples keyed by media type.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters.
+            First, it will look at the <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.SampleObjects" />. If no sample object is found, it will try to create one
+            using <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator" />.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+            The sample object.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription" />.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
+            <returns>
+            The samples keyed by media type.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription" />.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
+            <returns>
+            The samples keyed by media type.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage" /> or
+            <see cref="T:System.Net.Http.HttpResponseMessage" /> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription" />.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+            <returns>
+            The <see cref="T:System.Type" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            formatter
+            or
+            mediaType
+            </exception>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.IsFormatSupported(Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection,System.Net.Http.Formatting.MediaTypeFormatter,System.Type)">
+            <summary>
+            The is format supported.
+            </summary>
+            <param name="sampleDirection">The sample direction.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="type">The type.</param>
+            <returns>
+            The <see cref="T:System.Boolean" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.TryFormatJson(System.String)">
+            <summary>
+            The try format json.
+            </summary>
+            <param name="str">The str.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.TryFormatXml(System.String)">
+            <summary>
+            The try format xml.
+            </summary>
+            <param name="str">The str.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.WrapSampleIfString(System.Object)">
+            <summary>
+            The wrap sample if string.
+            </summary>
+            <param name="sample">The sample.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleGenerator.GetAllActionSamples(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection)">
+            <summary>
+            The get all action samples.
+            </summary>
+            <param name="controllerName">The controller name.</param>
+            <param name="actionName">The action name.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The sample direction.</param>
+            <returns>
+            The <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey" />.
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey" /> class.
+            Creates a new <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey" /> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+            <exception cref="T:System.ArgumentNullException">
+            mediaType
+            or
+            type
+            </exception>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.#ctor(Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey" /> class.
+            Creates a new <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey" /> based on <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection" />, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection" />.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey" /> class.
+            Creates a new <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey" /> based on media type, <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection" />, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection" />.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.ParameterType">
+            <summary>
+            Gets the parameter type.
+            </summary>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.Equals(System.Object)">
+            <summary>
+            The equals.
+            </summary>
+            <param name="obj">The obj.</param>
+            <returns>
+            The <see cref="T:System.Boolean" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.HelpPageSampleKey.GetHashCode">
+            <summary>
+            The get hash code.
+            </summary>
+            <returns>
+            The <see cref="T:System.Int32" />.
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.Src">
+            <summary>
+            Gets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ImageSample.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample"/> class.
+            </summary>
+            <param name="errorMessage">The error message.</param>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.ErrorMessage">
+            <summary>
+            Gets the error message.
+            </summary>
+            <value>
+            The error message.
+            </value>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.InvalidSample.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator">
+            <summary>
+                This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.DefaultCollectionSize">
+            <summary>
+            The default collection size.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.simpleObjectGenerator">
+            <summary>
+            The simple object generator.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable
+            public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32" />, <see cref="T:System.String" />, <see cref="T:System.Enum" />, <see cref="T:System.DateTime" />,
+            <see cref="T:System.Uri" />, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1" />.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2" />
+            Tuples: <see cref="T:System.Tuple`1" />, <see cref="T:System.Tuple`2" />, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2" /> or anything deriving from
+            <see cref="T:System.Collections.Generic.IDictionary`2" />.
+            Collections: <see cref="T:System.Collections.Generic.IList`1" />, <see cref="T:System.Collections.Generic.IEnumerable`1" />, <see cref="T:System.Collections.Generic.ICollection`1" />,
+            <see cref="T:System.Collections.IList" />, <see cref="T:System.Collections.IEnumerable" />, <see cref="T:System.Collections.ICollection" /> or anything deriving from
+            <see cref="T:System.Collections.Generic.ICollection`1" /> or <see cref="T:System.Collections.IList" />.
+            Queryables: <see cref="T:System.Linq.IQueryable" />, <see cref="T:System.Linq.IQueryable`1" />.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+            An object of the given type.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateArray(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate array.
+            </summary>
+            <param name="arrayType">The array type.</param>
+            <param name="size">The size.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateCollection(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate collection.
+            </summary>
+            <param name="collectionType">The collection type.</param>
+            <param name="size">The size.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateComplexObject(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate complex object.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateDictionary(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate dictionary.
+            </summary>
+            <param name="dictionaryType">The dictionary type.</param>
+            <param name="size">The size.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateEnum(System.Type)">
+            <summary>
+            The generate enum.
+            </summary>
+            <param name="enumType">The enum type.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateGenericType(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate generic type.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="collectionSize">The collection size.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateKeyValuePair(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate key value pair.
+            </summary>
+            <param name="keyValuePairType">The key value pair type.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateNullable(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate nullable.
+            </summary>
+            <param name="nullableType">The nullable type.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateQueryable(System.Type,System.Int32,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate queryable.
+            </summary>
+            <param name="queryableType">The queryable type.</param>
+            <param name="size">The size.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateTuple(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate tuple.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.IsTuple(System.Type)">
+            <summary>
+            The is tuple.
+            </summary>
+            <param name="genericTypeDefinition">The generic type definition.</param>
+            <returns>
+            The <see cref="T:System.Boolean" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SetPublicFields(System.Type,System.Object,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The set public fields.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="obj">The obj.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SetPublicProperties(System.Type,System.Object,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The set public properties.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="obj">The obj.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.GenerateObject(System.Type,System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            The generate object.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="createdObjectReferences">The created object references.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator">
+            <summary>
+            The simple type object generator.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.DefaultGenerators">
+            <summary>
+            The default generators.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.index">
+            <summary>
+                The index.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.CanGenerateObject(System.Type)">
+            <summary>
+            The can generate object.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+            The <see cref="T:System.Boolean" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            The generate object.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+            The <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.ObjectGenerator.SimpleTypeObjectGenerator.InitializeGenerators">
+            <summary>
+            The initialize generators.
+            </summary>
+            <returns>
+            The
+            <see><cref>Dictionary</cref></see>.
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection.Request">
+            <summary>
+            The request
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.SampleDirection.Response">
+            <summary>
+            The response
+            </summary>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample" /> class.
+            </summary>
+            <param name="text">The text.</param>
+        </member>
+        <member name="P:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.Text">
+            <summary>
+            Gets the text.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.Equals(System.Object)">
+            <summary>
+            The equals.
+            </summary>
+            <param name="obj">The obj.</param>
+            <returns>
+            The <see cref="T:System.Boolean" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.GetHashCode">
+            <summary>
+            The get hash code.
+            </summary>
+            <returns>
+            The <see cref="T:System.Int32" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.SampleGeneration.TextSample.ToString">
+            <summary>
+            The to string.
+            </summary>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider" /> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.MethodExpression">
+            <summary>
+            The method expression.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.ParameterExpression">
+            <summary>
+            The parameter expression.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.TypeExpression">
+            <summary>
+            The type expression.
+            </summary>
+        </member>
+        <member name="F:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.documentNavigator">
+            <summary>
+            The document navigator.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider" /> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpControllerDescriptor)">
+            <summary>
+            The get documentation.
+            </summary>
+            <param name="controllerDescriptor">The controller descriptor.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)">
+            <summary>
+            The get documentation.
+            </summary>
+            <param name="actionDescriptor">The action descriptor.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpParameterDescriptor)">
+            <summary>
+            The get documentation.
+            </summary>
+            <param name="parameterDescriptor">The parameter descriptor.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetResponseDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)">
+            <summary>
+            The get response documentation.
+            </summary>
+            <param name="actionDescriptor">The action descriptor.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetMemberName(System.Reflection.MethodInfo)">
+            <summary>
+            The get member name.
+            </summary>
+            <param name="method">The method.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetTagValue(System.Xml.XPath.XPathNavigator,System.String)">
+            <summary>
+            The get tag value.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="tagName">The tag name.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetTypeName(System.Type)">
+            <summary>
+            The get type name.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+            The <see cref="T:System.String" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetMethodNode(System.Web.Http.Controllers.HttpActionDescriptor)">
+            <summary>
+            The get method node.
+            </summary>
+            <param name="actionDescriptor">The action descriptor.</param>
+            <returns>
+            The <see cref="T:System.Xml.XPath.XPathNavigator" />.
+            </returns>
+        </member>
+        <member name="M:Elephant.Hank.Api.Areas.HelpPage.XmlDocumentationProvider.GetTypeNode(System.Web.Http.Controllers.HttpControllerDescriptor)">
+            <summary>
+            The get type node.
+            </summary>
+            <param name="controllerDescriptor">The controller descriptor.</param>
+            <returns>
+            The <see cref="T:System.Xml.XPath.XPathNavigator" />.
+            </returns>
+        </member>
         <member name="T:Elephant.Hank.Api.DependencyResolution.DefaultRegistry">
             <summary>
             The DefaultRegistry class
@@ -3867,6 +3896,30 @@
             Initializes a new instance of the <see cref="T:Elephant.Hank.Api.DependencyResolution.StructureMapDependencyScope"/> class.
             </summary>
             <param name="container">The container.</param>
+        </member>
+        <member name="P:Elephant.Hank.Api.DependencyResolution.StructureMapDependencyScope.Container">
+            <summary>
+            Gets or sets the container.
+            </summary>
+            <value>
+            The container.
+            </value>
+        </member>
+        <member name="P:Elephant.Hank.Api.DependencyResolution.StructureMapDependencyScope.CurrentNestedContainer">
+            <summary>
+            Gets or sets the current nested container.
+            </summary>
+            <value>
+            The current nested container.
+            </value>
+        </member>
+        <member name="P:Elephant.Hank.Api.DependencyResolution.StructureMapDependencyScope.HttpContext">
+            <summary>
+            Gets the HTTP context.
+            </summary>
+            <value>
+            The HTTP context.
+            </value>
         </member>
         <member name="M:Elephant.Hank.Api.DependencyResolution.StructureMapDependencyScope.CreateNestedContainer">
             <summary>
@@ -3913,30 +3966,6 @@
             The requested service instance.
             </returns>
         </member>
-        <member name="P:Elephant.Hank.Api.DependencyResolution.StructureMapDependencyScope.Container">
-            <summary>
-            Gets or sets the container.
-            </summary>
-            <value>
-            The container.
-            </value>
-        </member>
-        <member name="P:Elephant.Hank.Api.DependencyResolution.StructureMapDependencyScope.CurrentNestedContainer">
-            <summary>
-            Gets or sets the current nested container.
-            </summary>
-            <value>
-            The current nested container.
-            </value>
-        </member>
-        <member name="P:Elephant.Hank.Api.DependencyResolution.StructureMapDependencyScope.HttpContext">
-            <summary>
-            Gets the HTTP context.
-            </summary>
-            <value>
-            The HTTP context.
-            </value>
-        </member>
         <member name="T:Elephant.Hank.Api.DependencyResolution.StructureMapScopeModule">
             <summary>
             The StructureMapScopeModule class
@@ -3958,17 +3987,6 @@
             The structure map dependency resolver.
             </summary>
         </member>
-        <member name="T:Elephant.Hank.Api.DependencyResolution.StructureMapWebApiDependencyScope">
-            <summary>
-            The structure map web api dependency scope.
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.DependencyResolution.StructureMapWebApiDependencyScope.#ctor(StructureMap.IContainer)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.DependencyResolution.StructureMapWebApiDependencyScope"/> class.
-            </summary>
-            <param name="container">The container.</param>
-        </member>
         <member name="M:Elephant.Hank.Api.DependencyResolution.StructureMapWebApiDependencyResolver.#ctor(StructureMap.IContainer)">
             <summary>
             Initializes a new instance of the <see cref="T:Elephant.Hank.Api.DependencyResolution.StructureMapWebApiDependencyResolver"/> class.
@@ -3984,6 +4002,17 @@
             <returns>
             The System.Web.Http.Dependencies.IDependencyScope.
             </returns>
+        </member>
+        <member name="T:Elephant.Hank.Api.DependencyResolution.StructureMapWebApiDependencyScope">
+            <summary>
+            The structure map web api dependency scope.
+            </summary>
+        </member>
+        <member name="M:Elephant.Hank.Api.DependencyResolution.StructureMapWebApiDependencyScope.#ctor(StructureMap.IContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.DependencyResolution.StructureMapWebApiDependencyScope" /> class.
+            </summary>
+            <param name="container">The container.</param>
         </member>
         <member name="T:Elephant.Hank.Api.WebApiApplication">
             <summary>
@@ -4074,7 +4103,7 @@
             </summary>
             <param name="context">The context.</param>
             <returns>
-            The <see cref="T:System.Threading.Tasks.Task"/>.
+            The <see cref="T:System.Threading.Tasks.Task" />.
             </returns>
         </member>
         <member name="M:Elephant.Hank.Api.Providers.SimpleRefreshTokenProvider.ReceiveAsync(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext)">
@@ -4083,7 +4112,7 @@
             </summary>
             <param name="context">The context.</param>
             <returns>
-            The <see cref="T:System.Threading.Tasks.Task"/>.
+            The <see cref="T:System.Threading.Tasks.Task" />.
             </returns>
         </member>
         <member name="M:Elephant.Hank.Api.Providers.SimpleRefreshTokenProvider.Create(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext)">
@@ -4102,35 +4131,6 @@
             <summary>
             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
-        </member>
-        <member name="T:Elephant.Hank.Api.Security.AuthorizationMiddleware">
-            <summary>
-            The AuthorizationMiddleware class
-            </summary>
-        </member>
-        <member name="M:Elephant.Hank.Api.Security.AuthorizationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Elephant.Hank.Api.Security.AuthorizationMiddleware"/> class.
-            </summary>
-            <param name="next">next pointer</param>
-        </member>
-        <member name="M:Elephant.Hank.Api.Security.AuthorizationMiddleware.Invoke(Microsoft.Owin.IOwinContext)">
-            <summary>
-            Process an individual request.
-            </summary>
-            <param name="context">request context</param>
-            <returns>
-            response context
-            </returns>
-        </member>
-        <member name="M:Elephant.Hank.Api.Security.AuthorizationMiddleware.ProcessAuthLoading(Microsoft.Owin.IOwinContext)">
-            <summary>
-            Processes the authentication loading.
-            </summary>
-            <param name="context">The context.</param>
-            <returns>
-            Task promise
-            </returns>
         </member>
         <member name="T:Elephant.Hank.Api.Startup">
             <summary>
